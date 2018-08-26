@@ -20,7 +20,7 @@ footer:
 author: '杨建'
 nickname: 'MAX'
 bio: 'C、嵌入式开发者，浅尝python'
-avatar: '/assets/img/profile.jpg'
+#avatar: '/assets/img/profile.jpg'
 
 # Search
 search: true
