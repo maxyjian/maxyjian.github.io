@@ -2,7 +2,7 @@
 title: 'MAX Blog'
 description: 'Believe verything is willing！'
 keyword: 'C, 嵌入式，python'
-url: 'https://github.com/maxyjian/test' # your host
+url: 'https://maxyjian.github.io/test/' # your host
 
 # if you don't need baseurl, you should leave this value blank.
 baseurl: ''
@@ -19,8 +19,8 @@ footer:
 # Author 配置博主信息
 author: '杨建'
 nickname: 'MAX'
-bio: 'C, 嵌入式开发者，浅尝python，热爱技术，简单就是极致'
-avatar: '/assets/img/profile.png'
+bio: 'C、嵌入式开发者，浅尝python'
+avatar: '/assets/img/profile.jpg'
 
 # Search
 search: true
