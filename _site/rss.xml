@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>廖柯宇的独立博客</title>
-    <description>昵称悟空，千禧一代，前端开发者/伪极客/灵魂摄影师，热爱技术&amp;设计。很高兴能在这里与你分享我对技术和生活的思考。</description>
+    <title>MAX Blog</title>
+    <description>Believe verything is willing！</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 26 Aug 2018 18:37:30 +0800</pubDate>
-    <lastBuildDate>Sun, 26 Aug 2018 18:37:30 +0800</lastBuildDate>
+    <pubDate>Sun, 26 Aug 2018 18:46:40 +0800</pubDate>
+    <lastBuildDate>Sun, 26 Aug 2018 18:46:40 +0800</lastBuildDate>
     <generator>Jekyll v3.8.3</generator>
     
       <item>
@@ -25,9 +25,9 @@
 
 &lt;iframe width=&quot;711&quot; height=&quot;400&quot; src=&quot;https://www.youtube.com/embed/khTXWh9gKuY&quot; frameborder=&quot;0&quot; allow=&quot;autoplay; encrypted-media&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
 </description>
-        <pubDate>Sun, 26 Aug 2018 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2018/08/26/hello.html</link>
-        <guid isPermaLink="true">http://localhost:4000/2018/08/26/hello.html</guid>
+        <pubDate>Fri, 26 Aug 2016 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2016/08/26/hello.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2016/08/26/hello.html</guid>
         
         
       </item>
