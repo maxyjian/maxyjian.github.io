@@ -10,7 +10,7 @@ baseurl: ""
 
 # Navigation links
 nav:
-  home: ''
+  home: '/'
   tags: '/tags.html'
 
 # Footer
@@ -49,10 +49,9 @@ theme-color: 'default'  # pink or default
 # SNS settings 配置社交网站
 # url: email, weibo, zhihu, twitter, instagram, juejin, github, douban, facebook, dribble, uicn, jianshu, medium, linkedin
 sns:
-  weibo: '//weibo.com/lovecolcol'
-  juejin: '//juejin.im/user/57a6f434165abd006159b4cc'
-  instagram: '//www.instagram.com/steveliaocn'
-  github: '//github.com/kaeyleo'
+  weibo: '//weibo.com/u/5354288080'
+  zhihu: '//www.zhihu.com/people/finlay-yang/activities'
+  github: '//maxyjian.github.io/'
 
 # Tags 设置标签
 recommend-tags: true # whether or not display recommend-tags on the sidebar
