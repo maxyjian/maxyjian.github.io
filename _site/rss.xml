@@ -5,13 +5,14 @@
     <description>Believe verything is willing！</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sat, 01 Sep 2018 20:16:45 +0800</pubDate>
-    <lastBuildDate>Sat, 01 Sep 2018 20:16:45 +0800</lastBuildDate>
+    <pubDate>Sat, 01 Sep 2018 20:20:42 +0800</pubDate>
+    <lastBuildDate>Sat, 01 Sep 2018 20:20:42 +0800</lastBuildDate>
     <generator>Jekyll v3.8.3</generator>
     
       <item>
         <title>利用搬瓦工和shadowsocks实现翻墙</title>
         <description>&lt;h2 id=&quot;购买搬瓦工服务器&quot;&gt;购买搬瓦工服务器&lt;/h2&gt;
+
 &lt;p&gt;1、进入&lt;a href=&quot;https://www.bwh1.net/&quot;&gt;&lt;strong&gt;搬瓦工官网&lt;/strong&gt;&lt;/a&gt; ；&lt;/p&gt;
 
 &lt;p&gt;2、注册自己的账号；

@@ -8,6 +8,7 @@ tags: VPS shadowsocks
 ---
 
 ## 购买搬瓦工服务器
+
 1、进入[__搬瓦工官网__](https://www.bwh1.net/) ；
 
 2、注册自己的账号；
