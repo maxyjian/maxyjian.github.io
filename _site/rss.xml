@@ -5,8 +5,8 @@
     <description>Believe verything is willing！</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sat, 01 Sep 2018 18:59:25 +0800</pubDate>
-    <lastBuildDate>Sat, 01 Sep 2018 18:59:25 +0800</lastBuildDate>
+    <pubDate>Sat, 01 Sep 2018 20:03:12 +0800</pubDate>
+    <lastBuildDate>Sat, 01 Sep 2018 20:03:12 +0800</lastBuildDate>
     <generator>Jekyll v3.8.3</generator>
     
       <item>
@@ -49,7 +49,9 @@
 &lt;h2 id=&quot;windows翻墙&quot;&gt;windows翻墙&lt;/h2&gt;
 
 &lt;p&gt;   下载&lt;a href=&quot;https://github.com/zhoudaxiaa/ss-client&quot;&gt;&amp;lt;&lt;strong&gt;ShadowsocksR-4.7.0-win&lt;/strong&gt;&lt;/a&gt; ，解压后进入ShadowsocksR-dotnet4.0.exe，设置好服务器IP，shadowsocks端口、密码以及加密方式，然后确定。
-&lt;img src=&quot;http://localhost:4000/assets/img/vpsServer/13.png&quot; alt=&quot;图片9&quot; /&gt;
+&lt;img src=&quot;http://localhost:4000/assets/img/vpsServer/13.png&quot; alt=&quot;图片9&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;   界面如下:
 &lt;img src=&quot;http://localhost:4000/assets/img/vpsServer/14.png&quot; alt=&quot;图片10&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
@@ -86,8 +88,8 @@
 &lt;p&gt;修改方法：&lt;/p&gt;
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;vi /错误提示/python2.7/site-packages/shadowsocks/crypto/openssl.py
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;将&lt;code class=&quot;highlighter-rouge&quot;&gt;cleanup&lt;/code&gt;改为&lt;code class=&quot;highlighter-rouge&quot;&gt;reset&lt;/code&gt;（我的是52和111行），保存并退出，再次执行启动命令（若已start先stop），至此，系统代理服务开启了。
-#&lt;/p&gt;
+&lt;p&gt;将&lt;code class=&quot;highlighter-rouge&quot;&gt;cleanup&lt;/code&gt;改为&lt;code class=&quot;highlighter-rouge&quot;&gt;reset&lt;/code&gt;（我的是52和111行），保存并退出，再次执行启动命令（若已start先stop），至此，系统代理服务开启了。&lt;/p&gt;
+
 &lt;h4 id=&quot;配置chrome浏览器&quot;&gt;配置chrome浏览器&lt;/h4&gt;
 
 &lt;p&gt;第一步：我们需要下载一个chrome 浏览器的插件 Proxy SwitchyOmega：
@@ -108,8 +110,9 @@
 
 &lt;p&gt;      Rule list Format 选择 AutoProxy&lt;/p&gt;
 
-&lt;p&gt;   Rule list URL的gfwlist的规则：
-      &lt;a href=&quot;https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt&quot;&gt;https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt &lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;   Rule list URL的gfwlist规则：&lt;/p&gt;
+
+&lt;p&gt;      链接:&lt;a href=&quot;https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt&quot;&gt;https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;   下载规则文件Download Profile Now，左边Apply changes保存，完成之后，一定一定要点击下面的应用选项，进行保存，有博主踩过坑。&lt;/p&gt;
 
@@ -161,8 +164,8 @@
 
 </description>
         <pubDate>Fri, 31 Aug 2018 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2018/08/31/%E6%90%AD%E5%BB%BAVPS%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%BF%BB%E5%A2%99.html</link>
-        <guid isPermaLink="true">http://localhost:4000/2018/08/31/%E6%90%AD%E5%BB%BAVPS%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%BF%BB%E5%A2%99.html</guid>
+        <link>http://localhost:4000/2018/08/31/VPSserver.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/08/31/VPSserver.html</guid>
         
         <category>VPS</category>
         

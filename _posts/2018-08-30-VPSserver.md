@@ -90,7 +90,7 @@ Undefined symbol:EVP_CIPHER_CTX_cleanup
 sudo vi /错误提示/python2.7/site-packages/shadowsocks/crypto/openssl.py
 ```
 将```cleanup```改为```reset```（我的是52和111行），保存并退出，再次执行启动命令（若已start先stop），至此，系统代理服务开启了。
-#
+
 #### 配置chrome浏览器
 
 第一步：我们需要下载一个chrome 浏览器的插件 Proxy SwitchyOmega：
@@ -112,8 +112,9 @@ sudo vi /错误提示/python2.7/site-packages/shadowsocks/crypto/openssl.py
 &emsp; &ensp;&emsp; &ensp;Rule list Format 选择 AutoProxy
 
 
-&emsp; &ensp;Rule list URL的gfwlist的规则：
-&emsp; &ensp;&emsp; &ensp;[https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt ](https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt  ) 
+&emsp; &ensp;Rule list URL的gfwlist规则：
+
+&emsp; &ensp;&emsp; &ensp;链接:[https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt](https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt  ) 
 
 &emsp; &ensp;下载规则文件Download Profile Now，左边Apply changes保存，完成之后，一定一定要点击下面的应用选项，进行保存，有博主踩过坑。
 

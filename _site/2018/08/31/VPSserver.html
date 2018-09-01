@@ -10,7 +10,7 @@
     <!-- Open Graph -->
     <meta property="og:title" content="利用搬瓦工和shadowsocks实现翻墙 - MAX Blog">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="http://localhost:4000/2018/08/31/%E6%90%AD%E5%BB%BAVPS%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%BF%BB%E5%A2%99.html">
+    <meta property="og:url" content="http://localhost:4000/2018/08/31/VPSserver.html">
     <meta property="og:description" content="Believe verything is willing！">
     <meta property="og:site_name" content="MAX Blog">
     <link rel="stylesheet" href="//cdn.staticfile.org/normalize/6.0.0/normalize.min.css">
@@ -173,7 +173,9 @@ Author: Ray-Eldath
 <h2 id="windows翻墙">windows翻墙</h2>
 
 <p>   下载<a href="https://github.com/zhoudaxiaa/ss-client">&lt;<strong>ShadowsocksR-4.7.0-win</strong></a> ，解压后进入ShadowsocksR-dotnet4.0.exe，设置好服务器IP，shadowsocks端口、密码以及加密方式，然后确定。
-<img src="http://localhost:4000/assets/img/vpsServer/13.png" alt="图片9" />
+<img src="http://localhost:4000/assets/img/vpsServer/13.png" alt="图片9" /></p>
+
+<p>   界面如下:
 <img src="http://localhost:4000/assets/img/vpsServer/14.png" alt="图片10" /></p>
 
 <hr />
@@ -210,8 +212,8 @@ Author: Ray-Eldath
 <p>修改方法：</p>
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>vi /错误提示/python2.7/site-packages/shadowsocks/crypto/openssl.py
 </code></pre></div></div>
-<p>将<code class="highlighter-rouge">cleanup</code>改为<code class="highlighter-rouge">reset</code>（我的是52和111行），保存并退出，再次执行启动命令（若已start先stop），至此，系统代理服务开启了。
-#</p>
+<p>将<code class="highlighter-rouge">cleanup</code>改为<code class="highlighter-rouge">reset</code>（我的是52和111行），保存并退出，再次执行启动命令（若已start先stop），至此，系统代理服务开启了。</p>
+
 <h4 id="配置chrome浏览器">配置chrome浏览器</h4>
 
 <p>第一步：我们需要下载一个chrome 浏览器的插件 Proxy SwitchyOmega：
@@ -232,8 +234,9 @@ Author: Ray-Eldath
 
 <p>      Rule list Format 选择 AutoProxy</p>
 
-<p>   Rule list URL的gfwlist的规则：
-      <a href="https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt">https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt </a></p>
+<p>   Rule list URL的gfwlist规则：</p>
+
+<p>      链接:<a href="https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt">https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt</a></p>
 
 <p>   下载规则文件Download Profile Now，左边Apply changes保存，完成之后，一定一定要点击下面的应用选项，进行保存，有博主踩过坑。</p>
 
