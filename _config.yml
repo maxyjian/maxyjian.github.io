@@ -1,5 +1,5 @@
 # Site settings 配置站点
-title: 'MAX Blog'
+title: 'Max Blog'
 description: 'Believe verything is willing！'
 keyword: 'C开发, 嵌入式，python'
 url: 'https://maxyjian.github.io/' # your host
@@ -42,7 +42,7 @@ social-share: true
 social-share-items: ['wechat', 'weibo', 'douban', 'twitter']
 
 # theme color 主题皮肤
-theme-color: 'default'  # pink or default
+theme-color: ''  # pink or default
 
 # Post header background patterns (when the post no cover): circuitBoard, overlappingCircles, food, glamorous, ticTacToe, seaOfClouds
 
