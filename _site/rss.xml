@@ -5,148 +5,159 @@
     <description>Believe verything is willing！</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sat, 01 Sep 2018 16:58:36 +0800</pubDate>
-    <lastBuildDate>Sat, 01 Sep 2018 16:58:36 +0800</lastBuildDate>
+    <pubDate>Sat, 01 Sep 2018 18:59:25 +0800</pubDate>
+    <lastBuildDate>Sat, 01 Sep 2018 18:59:25 +0800</lastBuildDate>
     <generator>Jekyll v3.8.3</generator>
     
       <item>
         <title>利用搬瓦工和shadowsocks实现翻墙</title>
-        <description>&lt;p&gt;##购买搬瓦工服务器&lt;/p&gt;
+        <description>&lt;h2 id=&quot;购买搬瓦工服务器&quot;&gt;购买搬瓦工服务器&lt;/h2&gt;
+&lt;p&gt;1、进入&lt;a href=&quot;https://www.bwh1.net/&quot;&gt;&lt;strong&gt;搬瓦工官网&lt;/strong&gt;&lt;/a&gt; ；&lt;/p&gt;
 
-&lt;p&gt;1、进入&lt;a href=&quot;https://www.bwh1.net/&quot;&gt;搬瓦工官网&lt;/a&gt; ；&lt;/p&gt;
+&lt;p&gt;2、注册自己的账号；
+&lt;img src=&quot;http://localhost:4000/assets/img/vpsServer/4.png&quot; alt=&quot;图片1&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;2、注册自己的账号；&lt;/p&gt;
-&lt;center&gt;&amp;lt;img src=&quot;/assets/img/vpsServer/4.png&quot; width = 60% height = 60% /&amp;gt;&lt;/center&gt;
+&lt;p&gt;3、登录账号，然后进入VPS Hosting根据需求选择要购买的主机，我选择的是10G VPS的Order KVM，19.99刀/年，点击Order KVM后可以看到配置，选择最下面add to cart进入购买；
+&lt;img src=&quot;http://localhost:4000/assets/img/vpsServer/5.png&quot; alt=&quot;图片2&quot; /&gt;
+4、可以输入优惠码参与可以打折，然后checkout，选择Alipay使用支付宝扫码支付。&lt;/p&gt;
 
-&lt;p&gt;3、登录账号，然后进入VPS Hosting根据需求选择要购买的主机，我选择的是10G VPS的Order KVM，19.99刀/年，点击Order KVM后可以看到配置，选择最下面add to cart进入购买；&lt;/p&gt;
-&lt;center&gt;&amp;lt;img src=&quot;/assets/img/vpsServer/5.png&quot; width = 60% height = 60% /&amp;gt;&lt;/center&gt;
-&lt;p&gt;4、可以输入优惠码参与可以打折，然后checkout，选择Alipay使用支付宝扫码支付。
-#
-—
-##在购买的主机上安装shadowsocks&lt;/p&gt;
-
-&lt;p&gt;1、点击client Area，可看到如下界面，进入services—-&amp;gt;my services—-&amp;gt; kiwiVMControl Panel；&lt;/p&gt;
-&lt;center&gt;&amp;lt;img src=&quot;/assets/img/vpsServer/6.png&quot; width = 60% height = 60% /&amp;gt;&lt;/center&gt;
-
-&lt;p&gt;2、在Main controls中可以看到IP地址和SSH端口，可开机关机；在Root password modifiction中可设置root用户密码，可用于SSH登录；&lt;/p&gt;
-&lt;center&gt;&amp;lt;img src=&quot;/assets/img/vpsServer/11.png&quot; width = 60% height = 60% /&amp;gt;&lt;/center&gt;
-
-&lt;p&gt;3、左下方可看到Shadowsocks server，进入(若没有这个选项，如下图，则进入此网页：&lt;a href=&quot;https://kiwivm.64clouds.com/main-exec.php?mode=extras_shadowsocks&quot;&gt;shadowsocks server&lt;/a&gt; ）；&lt;/p&gt;
-&lt;center&gt;&amp;lt;img src=&quot;/assets/img/vpsServer/8.png&quot; width = 30% height = 30% /&amp;gt;&lt;/center&gt;
-
-&lt;p&gt;4、一键安装shadowsocks，如图：&lt;/p&gt;
-&lt;center&gt;&amp;lt;img src=&quot;/assets/img/vpsServer/10.png&quot; width = 30% height = 30% /&amp;gt;&lt;/center&gt;
-
-&lt;p&gt;5、然后进行配置，设置加密方式为、服务器端口和密码，如下图，记录下来，若没有running则选择start，running之后就搭建好了。&lt;/p&gt;
-&lt;center&gt;&amp;lt;img src=&quot;/assets/img/vpsServer/9.png&quot; width = 60% height = 60% /&amp;gt;&lt;/center&gt;
 &lt;hr /&gt;
-&lt;p&gt;##安卓手机翻墙&lt;/p&gt;
+&lt;h2 id=&quot;在购买的主机上安装shadowsocks&quot;&gt;在购买的主机上安装shadowsocks&lt;/h2&gt;
 
-&lt;p&gt;   下载&lt;a href=&quot;https://m.ddooo.com/softdown/75259.htm&quot;&gt;影梭app&lt;/a&gt; ，安装后进入，服务器写服务器IP地址，远程端口写shadowsocks server port，本地端口不需要改，密码写shadowsocks server password，加密方式要与服务器一致，我的是aes-256-cfb，点击app右上方云朵图标，连接上就可以google了，自测youtobe看视频也无压力(最好不要用全局，不然国内网站也要走服务器，浪费流量还容易被封)。&lt;/p&gt;
-&lt;center&gt;&amp;lt;img src=&quot;/assets/img/vpsServer/12.png&quot; width = 30% height = 30% /&amp;gt;&lt;/center&gt;
+&lt;p&gt;1、点击client Area，可看到如下界面，进入services—-&amp;gt;my services—-&amp;gt; kiwiVMControl Panel；
+&lt;img src=&quot;http://localhost:4000/assets/img/vpsServer/6.png&quot; alt=&quot;图片3&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;2、在Main controls中可以看到IP地址和SSH端口，可开机关机；在Root password modifiction中可设置root用户密码，可用于SSH登录；
+&lt;img src=&quot;http://localhost:4000/assets/img/vpsServer/11.png&quot; alt=&quot;图片4&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;3、左下方可看到Shadowsocks server，进入(若没有这个选项，如下图，则进入此网页：&lt;a href=&quot;https://kiwivm.64clouds.com/main-exec.php?mode=extras_shadowsocks&quot;&gt;shadowsocks server&lt;/a&gt; ）；
+&lt;img src=&quot;http://localhost:4000/assets/img/vpsServer/8.png&quot; alt=&quot;图片5&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;4、一键安装shadowsocks，如图：
+&lt;img src=&quot;http://localhost:4000/assets/img/vpsServer/10.png&quot; alt=&quot;图片6&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;5、然后进行配置，设置加密方式为、服务器端口和密码，如下图，记录下来，若没有running则选择start，running之后就搭建好了。
+&lt;img src=&quot;http://localhost:4000/assets/img/vpsServer/9.png&quot; alt=&quot;图片7&quot; /&gt;&lt;/p&gt;
+
 &lt;hr /&gt;
-&lt;p&gt;##windows翻墙&lt;/p&gt;
+&lt;h2 id=&quot;安卓手机翻墙&quot;&gt;安卓手机翻墙&lt;/h2&gt;
 
-&lt;p&gt;   下载&lt;a href=&quot;https://github.com/zhoudaxiaa/ss-client&quot;&gt;ShadowsocksR-4.7.0-win&lt;/a&gt; ，解压后进入ShadowsocksR-dotnet4.0.exe，设置好服务器IP，shadowsocks端口、密码以及加密方式，然后确定。&lt;/p&gt;
-&lt;center&gt;&amp;lt;img src=&quot;/assets/img/vpsServer/13.png&quot; width = 60% height = 60% /&amp;gt;&lt;/center&gt;
-&lt;center&gt;&amp;lt;img src=&quot;/assets/img/vpsServer/14.png&quot; width = 60% height = 60% /&amp;gt;&lt;/center&gt;
+&lt;p&gt;   下载&lt;a href=&quot;https://m.ddooo.com/softdown/75259.htm&quot;&gt;&lt;strong&gt;影梭app&lt;/strong&gt;&lt;/a&gt; ，安装后进入，服务器写服务器IP地址，远程端口写shadowsocks server port，本地端口不需要改，密码写shadowsocks server password，加密方式要与服务器一致，我的是aes-256-cfb，点击app右上方云朵图标，连接上就可以google了，自测youtobe看视频也无压力(最好不要用全局，不然国内网站也要走服务器，浪费流量还容易被封)。
+&lt;img src=&quot;http://localhost:4000/assets/img/vpsServer/12.png&quot; alt=&quot;图片8&quot; /&gt;&lt;/p&gt;
+
 &lt;hr /&gt;
-&lt;p&gt;##Ubuntu18.04翻墙&lt;/p&gt;
+&lt;h2 id=&quot;windows翻墙&quot;&gt;windows翻墙&lt;/h2&gt;
 
-&lt;p&gt;####安装shadowsocks&lt;/p&gt;
+&lt;p&gt;   下载&lt;a href=&quot;https://github.com/zhoudaxiaa/ss-client&quot;&gt;&amp;lt;&lt;strong&gt;ShadowsocksR-4.7.0-win&lt;/strong&gt;&lt;/a&gt; ，解压后进入ShadowsocksR-dotnet4.0.exe，设置好服务器IP，shadowsocks端口、密码以及加密方式，然后确定。
+&lt;img src=&quot;http://localhost:4000/assets/img/vpsServer/13.png&quot; alt=&quot;图片9&quot; /&gt;
+&lt;img src=&quot;http://localhost:4000/assets/img/vpsServer/14.png&quot; alt=&quot;图片10&quot; /&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get update
-sudo apt-get install python-pip
-sudo apt-get install python-m2crypto
-sudo pip install shadowsocks
+&lt;hr /&gt;
+&lt;h2 id=&quot;ubuntu1804翻墙&quot;&gt;Ubuntu18.04翻墙&lt;/h2&gt;
+
+&lt;h4 id=&quot;安装shadowsocks&quot;&gt;安装shadowsocks&lt;/h4&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get update
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;python-pip
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;python-m2crypto
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;pip &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;shadowsocks
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;#
-####运行shadowsocks&lt;/p&gt;
+
+&lt;h4 id=&quot;运行shadowsocks&quot;&gt;运行shadowsocks&lt;/h4&gt;
 
 &lt;p&gt;   编辑配置文件/etc/shadowsocks.json 我们可以配置如下：&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{
-&quot;server&quot;:&quot;96.56.19.78&quot;,
-&quot;server_port&quot;:493,
-&quot;local_address&quot;:&quot;192.168.0.1&quot;,
-&quot;local_port&quot;:1080,
-&quot;password&quot;:&quot;N3Y2YTdlDW&quot;,
-&quot;method&quot;:&quot;aes-256-cfb&quot;
-}
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+       &lt;span class=&quot;s2&quot;&gt;&quot;server&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;96.56.19.78&quot;&lt;/span&gt;,
+       &lt;span class=&quot;s2&quot;&gt;&quot;server_port&quot;&lt;/span&gt;:493,
+       &lt;span class=&quot;s2&quot;&gt;&quot;local_address&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;192.168.0.1&quot;&lt;/span&gt;,
+       &lt;span class=&quot;s2&quot;&gt;&quot;local_port&quot;&lt;/span&gt;:1080,
+       &lt;span class=&quot;s2&quot;&gt;&quot;password&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;N3Y2YTdlDW&quot;&lt;/span&gt;,
+       &lt;span class=&quot;s2&quot;&gt;&quot;method&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;aes-256-cfb&quot;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;   &lt;em&gt;[TIPS]: 加密方式推荐使用rc4-md5，因为 RC4 比 AES 速度快好几倍，如果用在路由器上会带来显著性能提升。旧的 RC4 加密之所以不安全是因为 Shadowsocks 在每个连接上重复使用 key，没有使用 IV。&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;配置完成之后使用配置文件在后台运行：&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  sudo sslocal -c /etc/shadowsocks.json -d -start   #停止为stop
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;sslocal &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; /etc/shadowsocks.json &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-start&lt;/span&gt;   &lt;span class=&quot;c&quot;&gt;#停止为stop&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;如果遇到错误：&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Undefined symbol:EVP_CIPHER_CTX_cleanup
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Undefined symbol:EVP_CIPHER_CTX_cleanup
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;修改方法：&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo vi /错误提示/python2.7/site-packages/shadowsocks/crypto/openssl.py
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;vi /错误提示/python2.7/site-packages/shadowsocks/crypto/openssl.py
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;将&lt;code class=&quot;highlighter-rouge&quot;&gt;cleanup&lt;/code&gt;改为&lt;code class=&quot;highlighter-rouge&quot;&gt;reset&lt;/code&gt;（我的是52和111行），保存并退出，再次执行启动命令（若已start先stop），至此，系统代理服务开启了。
-#
-####配置chrome浏览器&lt;/p&gt;
+#&lt;/p&gt;
+&lt;h4 id=&quot;配置chrome浏览器&quot;&gt;配置chrome浏览器&lt;/h4&gt;
 
 &lt;p&gt;第一步：我们需要下载一个chrome 浏览器的插件 Proxy SwitchyOmega：
-安装Proxy SwitchyOmega插件为了能够让chrome自动切换是否使用系统代理，在chrome浏览器 设置–-&amp;gt;扩展程序-–&amp;gt;更多扩展程序–-&amp;gt;进行搜索。&lt;/p&gt;
-&lt;center&gt;&amp;lt;img src=&quot;/assets/img/vpsServer/15.png&quot; width = 60% height = 60% /&amp;gt;&lt;/center&gt;
+安装Proxy SwitchyOmega插件为了能够让chrome自动切换是否使用系统代理，在chrome浏览器 设置–-&amp;gt;扩展程序-–&amp;gt;更多扩展程序–-&amp;gt;进行搜索。
+&lt;img src=&quot;http://localhost:4000/assets/img/vpsServer/15.png&quot; alt=&quot;图片11&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;第二步：安装完成之后，我们会在浏览器的菜单栏看到一个蓝色环形小图标，如图，点击进入选项：&lt;/p&gt;
-&lt;center&gt;&amp;lt;img src=&quot;/assets/img/vpsServer/16.png&quot; width = 30% height = 30% /&amp;gt;&lt;/center&gt;
+&lt;p&gt;第二步：安装完成之后，我们会在浏览器的菜单栏看到一个蓝色环形小图标，如图，点击进入选项：
+&lt;img src=&quot;http://localhost:4000/assets/img/vpsServer/16.png&quot; alt=&quot;图片12&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;第三步：我们按照之前 etc/shadowsocks.json 里面的配置进行相应的配置，如下图所示：在情景模式中选择 proxy，在代理服务器中的代理协议选择 socks5，本地代理服务器:shadowsocks的localIP，代理端口1080。&lt;/p&gt;
-&lt;center&gt;&amp;lt;img src=&quot;/assets/img/vpsServer/17.png&quot; width = 60% height = 60% /&amp;gt;&lt;/center&gt;
+&lt;p&gt;第三步：我们按照之前 etc/shadowsocks.json 里面的配置进行相应的配置，如下图所示：在情景模式中选择 proxy，在代理服务器中的代理协议选择 socks5，本地代理服务器:shadowsocks的localIP，代理端口1080。
+&lt;img src=&quot;http://localhost:4000/assets/img/vpsServer/17.png&quot; alt=&quot;图片13&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;   进入情景模式Autoswitch，进行如下配置：
-      Rule list 的 profile 选 proxy
-      Default  的 profile 选 direct
-      Rule list Format 选择 AutoProxy
-#
-   Rule list URL的gfwlist的规则：
-      &lt;a href=&quot;https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt&quot;&gt;https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt  &lt;/a&gt; 
-#
-   下载规则文件Download Profile Now，左边Apply changes保存，完成之后，一定一定要点击下面的应用选项，进行保存，有博主踩过坑。&lt;/p&gt;
+&lt;p&gt;   进入情景模式Autoswitch，进行如下配置：&lt;/p&gt;
 
-&lt;p&gt;第四步：开机启动： 
-   以下使用Systemd来实现shadowsocks开机自启：&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo vim /etc/systemd/system/shadowsocks.service
+&lt;p&gt;      Rule list 的 profile 选 proxy&lt;/p&gt;
+
+&lt;p&gt;      Default  的 profile 选 direct&lt;/p&gt;
+
+&lt;p&gt;      Rule list Format 选择 AutoProxy&lt;/p&gt;
+
+&lt;p&gt;   Rule list URL的gfwlist的规则：
+      &lt;a href=&quot;https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt&quot;&gt;https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt &lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;   下载规则文件Download Profile Now，左边Apply changes保存，完成之后，一定一定要点击下面的应用选项，进行保存，有博主踩过坑。&lt;/p&gt;
+
+&lt;p&gt;第四步：开机启动：&lt;/p&gt;
+
+&lt;p&gt;   以下使用Systemd来实现shadowsocks开机自启：&lt;/p&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;vim /etc/systemd/system/shadowsocks.service
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;在里面填写如下内容：&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[Unit]
-Description=Shadowsocks Client Service
-After=network.target
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;Unit]
+&lt;span class=&quot;nv&quot;&gt;Description&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;Shadowsocks Client Service
+&lt;span class=&quot;nv&quot;&gt;After&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;network.target
  
-[Service]
-Type=simple
-User=root
-ExecStart=/usr/bin/sslocal -c /mydir/shadowsocks.json
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;Service]
+&lt;span class=&quot;nv&quot;&gt;Type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;simple
+&lt;span class=&quot;nv&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;root
+&lt;span class=&quot;nv&quot;&gt;ExecStart&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/bin/sslocal &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; /mydir/shadowsocks.json
  
-[Install]
-WantedBy=multi-user.target
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;Install]
+&lt;span class=&quot;nv&quot;&gt;WantedBy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;multi-user.target
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;   &lt;em&gt;[TIPS]把root改为自己的用户名&lt;/em&gt;
-      &lt;em&gt;把/mydir/shadowsocks.json修改为你的shadowsocks.json路径&lt;/em&gt;
-      &lt;em&gt;把/usr/bin/sslocal改为你自己sslocal的路径(我的是/usr/local/bin/sslocal&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;   &lt;em&gt;[TIPS]把root改为自己的用户名&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;####翻墙测试&lt;/p&gt;
+&lt;p&gt;      &lt;em&gt;把/mydir/shadowsocks.json修改为你的shadowsocks.json路径&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;   我们现在打开&lt;a href=&quot;www.google.com&quot;&gt;谷歌&lt;/a&gt; ，你会发现打不开，进入Proxy SwitchyOmega，如图:&lt;/p&gt;
-&lt;center&gt;&amp;lt;img src=&quot;/assets/img/vpsServer/18.png&quot; width = 30% height = 30% /&amp;gt;&lt;/center&gt;
-&lt;p&gt;   这时候你会发现有一个资源未加载，我们点击它，如图：&lt;/p&gt;
-&lt;center&gt;&amp;lt;img src=&quot;/assets/img/vpsServer/19.png&quot; width = 40% height = 40% /&amp;gt;&lt;/center&gt;
-&lt;p&gt;   选择 proxy情景模式，点击添加条件，完成刷新页面即可。
-#
-#
-#
-##备注：&lt;/p&gt;
+&lt;p&gt;      &lt;em&gt;把/usr/bin/sslocal改为你自己sslocal的路径(我的是/usr/local/bin/sslocal&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;   本文非原创，而是参考多篇博客上综合试验而写，主要参考博客：
-         &lt;a href=&quot;http://jiyiren.github.io/2016/10/06/fanqiang/&quot;&gt;http://jiyiren.github.io/2016/10/06/fanqiang/&lt;/a&gt; 
-         &lt;a href=&quot;https://blog.csdn.net/HelloZEX/article/details/80806445&quot;&gt;https://blog.csdn.net/HelloZEX/article/details/80806445&lt;/a&gt; 
-         &lt;a href=&quot;https://segmentfault.com/a/1190000015725355?utm_source=tag-newest&quot;&gt;https://segmentfault.com/a/1190000015725355?utm_source=tag-newest&lt;/a&gt; 
-         &lt;a href=&quot;https://blog.csdn.net/killerstranger/article/details/80620171&quot;&gt;https://blog.csdn.net/killerstranger/article/details/80620171&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id=&quot;翻墙测试&quot;&gt;翻墙测试&lt;/h4&gt;
+
+&lt;p&gt;   我们现在打开&lt;a href=&quot;www.google.com&quot;&gt;&lt;strong&gt;谷歌&lt;/strong&gt;&lt;/a&gt; ，你会发现打不开，进入Proxy SwitchyOmega，如图:
+&lt;img src=&quot;http://localhost:4000/assets/img/vpsServer/18.png&quot; alt=&quot;图片14&quot; /&gt;
+   这时候你会发现有一个资源未加载，我们点击它，如图：
+&lt;img src=&quot;http://localhost:4000/assets/img/vpsServer/19.png&quot; alt=&quot;图片15&quot; /&gt;
+   选择 proxy情景模式，点击添加条件，完成刷新页面即可。&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h2 id=&quot;备注&quot;&gt;备注：&lt;/h2&gt;
+
+&lt;p&gt;   本文非原创，而是参考多篇博客上综合试验而写，主要参考以下博客：&lt;/p&gt;
+
+&lt;p&gt;     1、&lt;a href=&quot;http://jiyiren.github.io/2016/10/06/fanqiang/&quot;&gt; http://jiyiren.github.io/2016/10/06/fanqiang/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;     2、&lt;a href=&quot;https://blog.csdn.net/HelloZEX/article/details/80806445&quot;&gt;https://blog.csdn.net/HelloZEX/article/details/80806445&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;    3、&lt;a href=&quot;https://segmentfault.com/a/1190000015725355?utm_source=tag-newest&quot;&gt;https://segmentfault.com/a/1190000015725355?utm_source=tag-newest&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;     4、&lt;a href=&quot;https://blog.csdn.net/killerstranger/article/details/80620171&quot;&gt;https://blog.csdn.net/killerstranger/article/details/80620171&lt;/a&gt;&lt;/p&gt;
 
 </description>
         <pubDate>Fri, 31 Aug 2018 00:00:00 +0800</pubDate>
@@ -162,7 +173,7 @@ WantedBy=multi-user.target
     
       <item>
         <title>Hello ！</title>
-        <description>&lt;h3 id=&quot;welcome&quot;&gt;Welcome&lt;/h3&gt;
+        <description>&lt;h2 id=&quot;welcome&quot;&gt;Welcome&lt;/h2&gt;
 
 &lt;p&gt;好与不好都走了，幸与不幸都过了。真正的梦想，永远在实现之中，更在坚持之中。累了，就停一停，让手贴着手，温暖冷漠的岁月；苦了，就笑一笑，让心贴着心，体味至爱的抚摸；哭了，就让泪水尽情流淌，痛彻心菲也是精彩。选择一条道路，就选择一种人生一种无悔。阴霾终会荡尽，狞笑终是无聊卑鄙终会沉寂。&lt;/p&gt;
 
@@ -172,7 +183,7 @@ WantedBy=multi-user.target
                                                                2018.08.26
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h3 id=&quot;enjoy-a-video&quot;&gt;Enjoy a Video&lt;/h3&gt;
+&lt;h2 id=&quot;enjoy-a-video&quot;&gt;Enjoy a Video&lt;/h2&gt;
 
 &lt;iframe width=&quot;711&quot; height=&quot;400&quot; src=&quot;https://www.youtube.com/embed/khTXWh9gKuY&quot; frameborder=&quot;0&quot; allow=&quot;autoplay; encrypted-media&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
 </description>
