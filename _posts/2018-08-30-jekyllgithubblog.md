@@ -194,7 +194,7 @@ hint: to the same ref. You may want to first merge the remote changes (e.g.
 hint: 'git pull') before pushing again.
 hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 ```
-&ensp;&emsp;输入下面这条指令：
+&ensp;&emsp;输入下面这条指令，强制将本地的修改覆盖远程仓库的版本(不建议使用)：
 
 ```shell
 git push -f 
