@@ -2,7 +2,7 @@
 layout: post
 title: '利用搬瓦工和shadowsocks实现翻墙'
 date: 2018-08-31
-author: MAX
+author: Max
 cover: '/assets/img/vpsServer/theme.jpg'
 tags: VPS shadowsocks
 ---

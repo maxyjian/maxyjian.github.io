@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ubuntu 上将 Python 工程打包(deb安装包) - Max Blog</title>
+    <meta name="author"  content="杨建">
+    <meta name="description" content="ubuntu 上将 Python 工程打包(deb安装包)">
+    <meta name="keywords"  content="python, deb, ubuntu">
+    <!-- Open Graph -->
+    <meta property="og:title" content="ubuntu 上将 Python 工程打包(deb安装包) - Max Blog">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://localhost:4000/2018/09/01/python_deb.html">
+    <meta property="og:description" content="Believe verything is willing！">
+    <meta property="og:site_name" content="Max Blog">
+    <link rel="stylesheet" href="//cdn.staticfile.org/normalize/6.0.0/normalize.min.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_roc50gemkxpw4s4i.css">
+    <link rel="stylesheet" href="/assets/css/github-markdown.css">
+    <link rel="stylesheet" href="/assets/css/prism.css">
+    <link rel="stylesheet" href="/assets/css/share.min.css">
+    <link rel="stylesheet" href="/assets/css/app.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+	
+	<!--
+Author: Ray-Eldath
+refer to:
+ - http://docs.mathjax.org/en/latest/options/index.html
+-->
+
+	<script type="text/javascript" async src="https://cdn.bootcss.com/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+	
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+		jax: ["input/TeX", "output/HTML-CSS"],
+		tex2jax: {
+			inlineMath: [ ["$", "$"] ],
+			displayMath: [ ["$$", "$$"] ],
+			skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+		},
+		"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+      });
+    </script>
+
+	
+    <!--
+Author: Ray-Eldath
+-->
+<style>
+    .markdown-body .anchor{
+        float: left;
+        margin-top: -8px;
+        margin-left: -20px;
+        padding-right: 4px;
+        line-height: 1;
+        opacity: 0;
+    }
+    
+    .markdown-body .anchor .anchor-icon{
+        font-size: 15px
+    }
+</style>
+<script>
+    $(document).ready(function() {
+        let nodes = document.querySelector(".markdown-body").querySelectorAll("h1,h2,h3")
+        for(let node of nodes) {
+            var anchor = document.createElement("a")
+            var anchorIcon = document.createElement("i")
+            anchorIcon.setAttribute("class", "fa fa-anchor fa-lg anchor-icon")
+            anchorIcon.setAttribute("aria-hidden", true)
+            anchor.setAttribute("class", "anchor")
+            anchor.setAttribute("href", "#" + node.getAttribute("id"))
+            
+            anchor.onmouseover = function() {
+                this.style.opacity = "0.4"
+            }
+            
+            anchor.onmouseout = function() {
+                this.style.opacity = "0"
+            }
+            
+            anchor.appendChild(anchorIcon)
+            node.appendChild(anchor)
+        }
+    })
+</script>
+</head>
+
+
+<body>
+  <!--[if lt IE 10]>
+<div class="alert-danger" role="alert">你的浏览器实在太太太旧了，放学别走，升级完浏览器再说！<a target="_blank" class="alert-link" href="http://browsehappy.com">立即升级</a></div>
+<![endif]-->
+  <input id="nm-switch" type="hidden" value="true"> <header class="g-header">
+    <div class="g-logo">
+      <a href="/"></a>
+    </div>
+    <i id="menu-toggle" class="iconfont icon-menu"></i>
+    <nav class="g-nav">
+        <ul>
+            
+            <li><a href="/">home</a></li>
+            
+            <li><a href="/tags.html">tags</a></li>
+            
+        </ul>
+    </nav>
+</header>
+
+
+  <header class="g-banner post-header post-pattern- bgcolor- " data-theme="">
+    <div class="post-wrapper">
+      <div class="post-tags">
+        
+          
+            <a href="http://localhost:4000/tags#python" class="post-tag">python</a>
+          
+            <a href="http://localhost:4000/tags#deb" class="post-tag">deb</a>
+          
+            <a href="http://localhost:4000/tags#ubuntu" class="post-tag">ubuntu</a>
+          
+        
+      </div>
+      <h1>ubuntu 上将 Python 工程打包(deb安装包)</h1>
+      <div class="post-meta">
+        <span class="post-meta-item"><i class="iconfont icon-author"></i><a href="http://localhost:4000" target="_blank" rel="author">Max</a></></span>
+        <time class="post-meta-item" datetime="18-09-01"><i class="iconfont icon-date"></i>01 Sep 2018</time>
+      </div>
+    </div>
+    
+    <div class="filter"></div>
+      <div class="post-cover" style="background: url('/assets/img/pythondeb/theme.jpg') center no-repeat; background-size: cover;"></div>
+    
+  </header>
+
+  <div class="post-content visible">
+    
+
+    <article class="markdown-body">
+      <h2 id="前言">前言</h2>
+
+<p>   我们写好一个 python 工程后常常需要将软件打包,便于将写好的软件安装在其他没有安装工作环境的电脑上。下面介绍一个 python 工程的打包过程,分为两大步骤:</p>
+
+<p>   一、将工程打包生成一个可执行文件;</p>
+
+<p>   二、将可执行文件和工程依赖的所有文件制作成.deb 安装包。</p>
+
+<hr />
+<h2 id="将工程打包生成一个可执行文件">将工程打包生成一个可执行文件</h2>
+
+<p>   首先给系统装个 easy_install, 如果装了的可以跳过这步。</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get <span class="nb">install </span>python-setuptools python-dev build-essential
+</code></pre></div></div>
+<p>   官网上下载 pyinstaller,网址:  <a href="http://www.pyinstaller.org/">http://www.pyinstaller.org/</a></p>
+
+<p>   解包进入源码目录:</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>unzip PyInstaller-3.2.zip
+<span class="nb">cd </span>pyinstaller-3.2
+</code></pre></div></div>
+
+<p>   将需打包的工程文件夹里面所有需要的文件 ( 包含主函数文件,如 test.py ) 拷贝到当前目录 ( pyinstaller-3.2 )，生成可执行文件，cd 到 pyinstaller 目录 , 执行:</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code> python pyinstaller.py test.py
+</code></pre></div></div>
+
+<p>   将工程里面除了 .py 文件 ( 作用 : 保留源码 ) 外的所有依赖文件(如数据文件)按原来在工程中的目录拷贝到当前目录的 /test/dist/test 下,在其他工作目录下运行可执行文件 ( 如 /usr/test( 绝对路径 )), 看是否可以执行,若不能运行,可能是以下原因:</p>
+
+<p>   (1) 、路径中有汉字;</p>
+
+<p>   (2) 、你的 python 程序中有路径不会随文件目录变化而变化;</p>
+
+<p>   (3) 、依赖文件没有拷贝或拷贝不完整。</p>
+
+<hr />
+<h2 id="制作成-deb-安装包">制作成 .deb 安装包</h2>
+<h5 id="制作打包文件夹">制作打包文件夹</h5>
+<p>   新建一个文件夹,例如在用户目录下新建 mydeb 文件夹，在 mydeb 文件夹建立如下结构的文件夹和文件。</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    |——mydeb
+        |————usr
+            |————lib
+                |——可执行文件及执行所需依赖文件<span class="o">(</span>安装后,就在你的/usr/lib 生成相应的可执行文件<span class="o">)</span>
+            |————share
+                |—icons
+                    |——deb.png<span class="o">(</span>启动器图标文件生成到/usr/share/icons/<span class="o">)</span>
+                |———applications
+                    |——deb.desktop<span class="o">(</span>桌面文件生成到/usr/share/applications/<span class="o">)</span>
+        |————DEBIAN<span class="o">(</span>大写、用来制作打包文件<span class="o">)</span>
+            |————control<span class="o">(</span>描述 deb 包的信息必须的文件<span class="o">)</span>
+</code></pre></div></div>
+
+<p>   [TIPS]:deb.desktop 的建立,sudo gedit deb.desktop,下方设置为.desktop 格式,输入如下内容:</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>Desktop Entry]
+<span class="nv">Name</span><span class="o">=</span>mydeb                           <span class="c">#这个是程序名称</span>
+<span class="nv">Comment</span><span class="o">=</span>制作 deb 的工具 <span class="c">#注释</span>
+<span class="nv">Exec</span><span class="o">=</span>/usr/lib/test                   <span class="c">#可执行文件存放的位置</span>
+<span class="nv">Icon</span><span class="o">=</span>/usr/share/deb.png    <span class="c">#图标存放的位置</span>
+<span class="nv">Terminal</span><span class="o">=</span><span class="nb">false</span>                        <span class="c">#是否使用终端</span>
+<span class="nv">Type</span><span class="o">=</span>Application                  <span class="c">#应用类型</span>
+X-Ubuntu-Touch<span class="o">=</span><span class="nb">true</span>          <span class="c">#这个暂时我也不知道是什么用的</span>
+<span class="nv">Categories</span><span class="o">=</span>Development  <span class="c">#分类</span>
+Name[en]<span class="o">=</span>desktop            
+</code></pre></div></div>
+
+<p>   [TIPS]:</p>
+
+<p>   1、#的内容都要删除,不要有任何注释等不必要的信息,否则有时会出现启动程序错误。</p>
+
+<p>   2、#文件夹名首尾千万不要出现空格,否则会出错。</p>
+
+<p>   3、Categories 可以取以下值,表示程序的启动快捷方式放在哪个菜单下:</p>
+
+<p>       应用 Application;</p>
+
+<p>       Network 放在互联网(Internet);</p>
+
+<p>        办公 Office;</p>
+
+<p>        图形 Graphics;</p>
+
+<p>        声音和视 AudioVideo;</p>
+
+<p>        系统工具 System;</p>
+
+<p>        编程 Development;</p>
+
+<p>       附件 Utility;</p>
+
+<p>        影音 AudioVideo;</p>
+
+<p>        游戏 Game;</p>
+
+<p>        首选项 Settings(GNOME;GTK;Settings;HardwareSettings;);</p>
+
+<p>        系统管理 System。</p>
+
+<p>   4、control 文件内容输入相关信息:</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>package: mydeb <span class="c">#安装包的名称</span>
+version: 1.0.0 <span class="c">#版本</span>
+architecture: i386 <span class="c">#平台maintainer: yang #维护者</span>
+description: you can description the deb <span class="c">#描述安装包的信息</span>
+</code></pre></div></div>
+<hr />
+<h5 id="打包">打包</h5>
+<p>   在 mydeb 文件夹的路径上:</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>dpkg <span class="nt">-b</span> mydeb program-mydeb_1.0.0_i386.deb 
+</code></pre></div></div>
+<p>   deb 包正确的命名规则 program-name_version_architeture.deb,最好与它们在 control 文件
+里对应的语句相同。</p>
+
+<h5 id="安装">安装</h5>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>dpkg <span class="nt">-i</span> program-mydeb_1.0.0_i386.deb 
+</code></pre></div></div>
+<p>  或者直接双击.deb 文件,会进入软件中心,点击安装即可。</p>
+
+<h5 id="卸载">卸载</h5>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>dpkg <span class="nt">-P</span> mydeb 
+</code></pre></div></div>
+<p>  [TIPS]:1、安装好软件后启动器在/usr/share 下的的 applications 中,可以直接启动。</p>
+
+<p>       2、本例也许并不是很符合.deb 打包标准,但是可以安装运行。</p>
+
+<hr />
+<h2 id="备注">备注：</h2>
+
+<p>      参考博客:</p>
+
+<p>         <a href="http://blog.csdn.net/yangbingzhou/article/details/33318625">http://blog.csdn.net/yangbingzhou/article/details/33318625</a></p>
+
+<p>         <a href="http://blog.csdn.net/linda1000/article/details/12946297">http://blog.csdn.net/linda1000/article/details/12946297</a></p>
+
+    </article>
+
+    
+    <div class="social-share-wrapper">
+      <div class="social-share"></div>
+    </div>
+    
+  </div>
+
+  <section class="author-detail">
+    <section class="post-footer-item author-card">
+      <div class="avatar">
+        <img src="http://localhost:4000/assets/img/profile.jpg" alt="">
+      </div>
+      <div class="author-name" rel="author">杨建</div>
+      <div class="bio">
+        <p>C、嵌入式开发者，浅尝python</p>
+      </div>
+      
+      <ul class="sns-links">
+        
+        <li>
+          <a href="//weibo.com/u/5354288080" target="_blank">
+                    <i class="iconfont icon-weibo"></i>
+                </a>
+        </li>
+        
+        <li>
+          <a href="//www.zhihu.com/people/finlay-yang/activities" target="_blank">
+                    <i class="iconfont icon-zhihu"></i>
+                </a>
+        </li>
+        
+        <li>
+          <a href="//maxyjian.github.io/" target="_blank">
+                    <i class="iconfont icon-github"></i>
+                </a>
+        </li>
+        
+      </ul>
+      
+    </section>
+    <section class="post-footer-item read-next">
+      
+
+      
+      <div class="read-next-item">
+        <a href="/2018/09/01/jekyllgithubblog.html" class="read-next-link"></a>
+          <section>
+            <span>在Github上使用jekyll框架建个人博客</span>
+            <p>新建本地和github仓库</p>
+          </section>
+          
+          <div class="filter"></div>
+          <img src="/assets/img/jekyllblog/theme.jpg" alt="">
+          
+      </div>
+      
+    </section>
+    <section class="post-footer-item comment">
+      <div id="disqus_thread"></div>
+    </section>
+  </section>
+
+  <footer class="g-footer">
+  <section>Max Blog ©
+  
+  
+  2018
+  </section>
+  <section>Powered by <a href="//jekyllrb.com">Jekyll</a> | <a href="https://github.com/kaeyleo/jekyll-theme-H2O">Theme H2O</a></section>
+</footer>
+
+
+  <script src="/assets/js/social-share.min.js"></script>
+  <script>
+    socialShare('.social-share', {
+      sites: [
+        
+          'wechat'
+          ,
+          
+        
+          'weibo'
+          ,
+          
+        
+          'douban'
+          ,
+          
+        
+          'twitter'
+          
+        
+      ],
+      wechatQrcodeTitle: "分享到微信朋友圈",
+      wechatQrcodeHelper: '<p>扫码后点击右上角</p><p>将本文分享至朋友圈</p>'
+    });
+  </script>
+
+  
+  <script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+      var d = document,
+        s = d.createElement('script');
+      s.src = 'https://https-maxyjian-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  
+
+  <script src="/assets/js/prism.js"></script>
+  <script src="/assets/js/index.min.js"></script>
+</body>
+
+</html>
