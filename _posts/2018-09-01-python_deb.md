@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'ubuntu 上将 Python 工程打包(deb安装包)'
-date: 2018-09-01
+date: 2018-08-27
 author: Max
 cover: '/assets/img/pythondeb/theme.jpg'
 tags: python deb ubuntu
