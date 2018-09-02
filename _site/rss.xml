@@ -5,163 +5,9 @@
     <description>Believe verything is willing！</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 02 Sep 2018 16:40:53 +0800</pubDate>
-    <lastBuildDate>Sun, 02 Sep 2018 16:40:53 +0800</lastBuildDate>
+    <pubDate>Sun, 02 Sep 2018 16:44:28 +0800</pubDate>
+    <lastBuildDate>Sun, 02 Sep 2018 16:44:28 +0800</lastBuildDate>
     <generator>Jekyll v3.8.3</generator>
-    
-      <item>
-        <title>ubuntu 上将 Python 工程打包(deb安装包)</title>
-        <description>&lt;h2 id=&quot;前言&quot;&gt;前言&lt;/h2&gt;
-
-&lt;p&gt;   我们写好一个 python 工程后常常需要将软件打包,便于将写好的软件安装在其他没有安装工作环境的电脑上。下面介绍一个 python 工程的打包过程,分为两大步骤:&lt;/p&gt;
-
-&lt;p&gt;   一、将工程打包生成一个可执行文件;&lt;/p&gt;
-
-&lt;p&gt;   二、将可执行文件和工程依赖的所有文件制作成.deb 安装包。&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;h2 id=&quot;将工程打包生成一个可执行文件&quot;&gt;将工程打包生成一个可执行文件&lt;/h2&gt;
-
-&lt;p&gt;   首先给系统装个 easy_install, 如果装了的可以跳过这步。&lt;/p&gt;
-
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;python-setuptools python-dev build-essential
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;   官网上下载 pyinstaller,网址:  &lt;a href=&quot;http://www.pyinstaller.org/&quot;&gt;http://www.pyinstaller.org/&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;   解包进入源码目录:&lt;/p&gt;
-
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;unzip PyInstaller-3.2.zip
-&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;pyinstaller-3.2
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;   将需打包的工程文件夹里面所有需要的文件 ( 包含主函数文件,如 test.py ) 拷贝到当前目录 ( pyinstaller-3.2 )，生成可执行文件，cd 到 pyinstaller 目录 , 执行:&lt;/p&gt;
-
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; python pyinstaller.py test.py
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;   将工程里面除了 .py 文件 ( 作用 : 保留源码 ) 外的所有依赖文件(如数据文件)按原来在工程中的目录拷贝到当前目录的 /test/dist/test 下,在其他工作目录下运行可执行文件 ( 如 /usr/test( 绝对路径 )), 看是否可以执行,若不能运行,可能是以下原因:&lt;/p&gt;
-
-&lt;p&gt;   (1) 、路径中有汉字;&lt;/p&gt;
-
-&lt;p&gt;   (2) 、你的 python 程序中有路径不会随文件目录变化而变化;&lt;/p&gt;
-
-&lt;p&gt;   (3) 、依赖文件没有拷贝或拷贝不完整。&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;h2 id=&quot;制作成-deb-安装包&quot;&gt;制作成 .deb 安装包&lt;/h2&gt;
-&lt;h5 id=&quot;制作打包文件夹&quot;&gt;制作打包文件夹&lt;/h5&gt;
-&lt;p&gt;   新建一个文件夹,例如在用户目录下新建 mydeb 文件夹，在 mydeb 文件夹建立如下结构的文件夹和文件。&lt;/p&gt;
-
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    |——mydeb
-        |————usr
-            |————lib
-                |——可执行文件及执行所需依赖文件&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;安装后,就在你的/usr/lib 生成相应的可执行文件&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-            |————share
-                |—icons
-                    |——deb.png&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;启动器图标文件生成到/usr/share/icons/&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-                |———applications
-                    |——deb.desktop&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;桌面文件生成到/usr/share/applications/&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-        |————DEBIAN&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;大写、用来制作打包文件&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-            |————control&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;描述 deb 包的信息必须的文件&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;   [TIPS]:deb.desktop 的建立,sudo gedit deb.desktop,下方设置为.desktop 格式,输入如下内容:&lt;/p&gt;
-
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;Desktop Entry]
-&lt;span class=&quot;nv&quot;&gt;Name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;mydeb                           &lt;span class=&quot;c&quot;&gt;#这个是程序名称&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;Comment&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;制作 deb 的工具 &lt;span class=&quot;c&quot;&gt;#注释&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;Exec&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/lib/test                   &lt;span class=&quot;c&quot;&gt;#可执行文件存放的位置&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;Icon&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/share/deb.png    &lt;span class=&quot;c&quot;&gt;#图标存放的位置&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;Terminal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;false&lt;/span&gt;                        &lt;span class=&quot;c&quot;&gt;#是否使用终端&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;Type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;Application                  &lt;span class=&quot;c&quot;&gt;#应用类型&lt;/span&gt;
-X-Ubuntu-Touch&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;          &lt;span class=&quot;c&quot;&gt;#这个暂时我也不知道是什么用的&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;Categories&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;Development  &lt;span class=&quot;c&quot;&gt;#分类&lt;/span&gt;
-Name[en]&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;desktop            
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;   [TIPS]:&lt;/p&gt;
-
-&lt;p&gt;   1、#的内容都要删除,不要有任何注释等不必要的信息,否则有时会出现启动程序错误。&lt;/p&gt;
-
-&lt;p&gt;   2、#文件夹名首尾千万不要出现空格,否则会出错。&lt;/p&gt;
-
-&lt;p&gt;   3、Categories 可以取以下值,表示程序的启动快捷方式放在哪个菜单下:&lt;/p&gt;
-
-&lt;p&gt;       应用 Application;&lt;/p&gt;
-
-&lt;p&gt;       Network 放在互联网(Internet);&lt;/p&gt;
-
-&lt;p&gt;        办公 Office;&lt;/p&gt;
-
-&lt;p&gt;        图形 Graphics;&lt;/p&gt;
-
-&lt;p&gt;        声音和视 AudioVideo;&lt;/p&gt;
-
-&lt;p&gt;        系统工具 System;&lt;/p&gt;
-
-&lt;p&gt;        编程 Development;&lt;/p&gt;
-
-&lt;p&gt;       附件 Utility;&lt;/p&gt;
-
-&lt;p&gt;        影音 AudioVideo;&lt;/p&gt;
-
-&lt;p&gt;        游戏 Game;&lt;/p&gt;
-
-&lt;p&gt;        首选项 Settings(GNOME;GTK;Settings;HardwareSettings;);&lt;/p&gt;
-
-&lt;p&gt;        系统管理 System。&lt;/p&gt;
-
-&lt;p&gt;   4、control 文件内容输入相关信息:&lt;/p&gt;
-
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;package: mydeb &lt;span class=&quot;c&quot;&gt;#安装包的名称&lt;/span&gt;
-version: 1.0.0 &lt;span class=&quot;c&quot;&gt;#版本&lt;/span&gt;
-architecture: i386 &lt;span class=&quot;c&quot;&gt;#平台maintainer: yang #维护者&lt;/span&gt;
-description: you can description the deb &lt;span class=&quot;c&quot;&gt;#描述安装包的信息&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;hr /&gt;
-&lt;h5 id=&quot;打包&quot;&gt;打包&lt;/h5&gt;
-&lt;p&gt;   在 mydeb 文件夹的路径上:&lt;/p&gt;
-
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;dpkg &lt;span class=&quot;nt&quot;&gt;-b&lt;/span&gt; mydeb program-mydeb_1.0.0_i386.deb 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;   deb 包正确的命名规则 program-name_version_architeture.deb,最好与它们在 control 文件
-里对应的语句相同。&lt;/p&gt;
-
-&lt;h5 id=&quot;安装&quot;&gt;安装&lt;/h5&gt;
-
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;dpkg &lt;span class=&quot;nt&quot;&gt;-i&lt;/span&gt; program-mydeb_1.0.0_i386.deb 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;  或者直接双击.deb 文件,会进入软件中心,点击安装即可。&lt;/p&gt;
-
-&lt;h5 id=&quot;卸载&quot;&gt;卸载&lt;/h5&gt;
-
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;dpkg &lt;span class=&quot;nt&quot;&gt;-P&lt;/span&gt; mydeb 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;  [TIPS]:1、安装好软件后启动器在/usr/share 下的的 applications 中,可以直接启动。&lt;/p&gt;
-
-&lt;p&gt;       2、本例也许并不是很符合.deb 打包标准,但是可以安装运行。&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;h2 id=&quot;备注&quot;&gt;备注：&lt;/h2&gt;
-
-&lt;p&gt;      参考博客:&lt;/p&gt;
-
-&lt;p&gt;         &lt;a href=&quot;http://blog.csdn.net/yangbingzhou/article/details/33318625&quot;&gt;http://blog.csdn.net/yangbingzhou/article/details/33318625&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;         &lt;a href=&quot;http://blog.csdn.net/linda1000/article/details/12946297&quot;&gt;http://blog.csdn.net/linda1000/article/details/12946297&lt;/a&gt;&lt;/p&gt;
-</description>
-        <pubDate>Sat, 01 Sep 2018 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2018/09/01/python_deb.html</link>
-        <guid isPermaLink="true">http://localhost:4000/2018/09/01/python_deb.html</guid>
-        
-        <category>python</category>
-        
-        <category>deb</category>
-        
-        <category>ubuntu</category>
-        
-        
-      </item>
     
       <item>
         <title>在Github上使用jekyll框架建个人博客</title>
@@ -521,6 +367,160 @@ hint: See the &lt;span class=&quot;s1&quot;&gt;'Note about fast-forwards'&lt;/sp
         <category>VPS</category>
         
         <category>shadowsocks</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>ubuntu 上将 Python 工程打包(deb安装包)</title>
+        <description>&lt;h2 id=&quot;前言&quot;&gt;前言&lt;/h2&gt;
+
+&lt;p&gt;   我们写好一个 python 工程后常常需要将软件打包,便于将写好的软件安装在其他没有安装工作环境的电脑上。下面介绍一个 python 工程的打包过程,分为两大步骤:&lt;/p&gt;
+
+&lt;p&gt;   一、将工程打包生成一个可执行文件;&lt;/p&gt;
+
+&lt;p&gt;   二、将可执行文件和工程依赖的所有文件制作成.deb 安装包。&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h2 id=&quot;将工程打包生成一个可执行文件&quot;&gt;将工程打包生成一个可执行文件&lt;/h2&gt;
+
+&lt;p&gt;   首先给系统装个 easy_install, 如果装了的可以跳过这步。&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;python-setuptools python-dev build-essential
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;   官网上下载 pyinstaller,网址:  &lt;a href=&quot;http://www.pyinstaller.org/&quot;&gt;http://www.pyinstaller.org/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;   解包进入源码目录:&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;unzip PyInstaller-3.2.zip
+&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;pyinstaller-3.2
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;   将需打包的工程文件夹里面所有需要的文件 ( 包含主函数文件,如 test.py ) 拷贝到当前目录 ( pyinstaller-3.2 )，生成可执行文件，cd 到 pyinstaller 目录 , 执行:&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; python pyinstaller.py test.py
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;   将工程里面除了 .py 文件 ( 作用 : 保留源码 ) 外的所有依赖文件(如数据文件)按原来在工程中的目录拷贝到当前目录的 /test/dist/test 下,在其他工作目录下运行可执行文件 ( 如 /usr/test( 绝对路径 )), 看是否可以执行,若不能运行,可能是以下原因:&lt;/p&gt;
+
+&lt;p&gt;   (1) 、路径中有汉字;&lt;/p&gt;
+
+&lt;p&gt;   (2) 、你的 python 程序中有路径不会随文件目录变化而变化;&lt;/p&gt;
+
+&lt;p&gt;   (3) 、依赖文件没有拷贝或拷贝不完整。&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h2 id=&quot;制作成-deb-安装包&quot;&gt;制作成 .deb 安装包&lt;/h2&gt;
+&lt;h5 id=&quot;制作打包文件夹&quot;&gt;制作打包文件夹&lt;/h5&gt;
+&lt;p&gt;   新建一个文件夹,例如在用户目录下新建 mydeb 文件夹，在 mydeb 文件夹建立如下结构的文件夹和文件。&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    |——mydeb
+        |————usr
+            |————lib
+                |——可执行文件及执行所需依赖文件&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;安装后,就在你的/usr/lib 生成相应的可执行文件&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+            |————share
+                |—icons
+                    |——deb.png&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;启动器图标文件生成到/usr/share/icons/&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+                |———applications
+                    |——deb.desktop&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;桌面文件生成到/usr/share/applications/&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+        |————DEBIAN&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;大写、用来制作打包文件&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+            |————control&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;描述 deb 包的信息必须的文件&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;   [TIPS]:deb.desktop 的建立,sudo gedit deb.desktop,下方设置为.desktop 格式,输入如下内容:&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;Desktop Entry]
+&lt;span class=&quot;nv&quot;&gt;Name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;mydeb                           &lt;span class=&quot;c&quot;&gt;#这个是程序名称&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;Comment&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;制作 deb 的工具 &lt;span class=&quot;c&quot;&gt;#注释&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;Exec&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/lib/test                   &lt;span class=&quot;c&quot;&gt;#可执行文件存放的位置&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;Icon&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/share/deb.png    &lt;span class=&quot;c&quot;&gt;#图标存放的位置&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;Terminal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;false&lt;/span&gt;                        &lt;span class=&quot;c&quot;&gt;#是否使用终端&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;Type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;Application                  &lt;span class=&quot;c&quot;&gt;#应用类型&lt;/span&gt;
+X-Ubuntu-Touch&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;          &lt;span class=&quot;c&quot;&gt;#这个暂时我也不知道是什么用的&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;Categories&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;Development  &lt;span class=&quot;c&quot;&gt;#分类&lt;/span&gt;
+Name[en]&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;desktop            
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;   [TIPS]:&lt;/p&gt;
+
+&lt;p&gt;   1、#的内容都要删除,不要有任何注释等不必要的信息,否则有时会出现启动程序错误。&lt;/p&gt;
+
+&lt;p&gt;   2、#文件夹名首尾千万不要出现空格,否则会出错。&lt;/p&gt;
+
+&lt;p&gt;   3、Categories 可以取以下值,表示程序的启动快捷方式放在哪个菜单下:&lt;/p&gt;
+
+&lt;p&gt;       应用 Application;&lt;/p&gt;
+
+&lt;p&gt;       Network 放在互联网(Internet);&lt;/p&gt;
+
+&lt;p&gt;        办公 Office;&lt;/p&gt;
+
+&lt;p&gt;        图形 Graphics;&lt;/p&gt;
+
+&lt;p&gt;        声音和视 AudioVideo;&lt;/p&gt;
+
+&lt;p&gt;        系统工具 System;&lt;/p&gt;
+
+&lt;p&gt;        编程 Development;&lt;/p&gt;
+
+&lt;p&gt;       附件 Utility;&lt;/p&gt;
+
+&lt;p&gt;        影音 AudioVideo;&lt;/p&gt;
+
+&lt;p&gt;        游戏 Game;&lt;/p&gt;
+
+&lt;p&gt;        首选项 Settings(GNOME;GTK;Settings;HardwareSettings;);&lt;/p&gt;
+
+&lt;p&gt;        系统管理 System。&lt;/p&gt;
+
+&lt;p&gt;   4、control 文件内容输入相关信息:&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;package: mydeb &lt;span class=&quot;c&quot;&gt;#安装包的名称&lt;/span&gt;
+version: 1.0.0 &lt;span class=&quot;c&quot;&gt;#版本&lt;/span&gt;
+architecture: i386 &lt;span class=&quot;c&quot;&gt;#平台maintainer: yang #维护者&lt;/span&gt;
+description: you can description the deb &lt;span class=&quot;c&quot;&gt;#描述安装包的信息&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;hr /&gt;
+&lt;h5 id=&quot;打包&quot;&gt;打包&lt;/h5&gt;
+&lt;p&gt;   在 mydeb 文件夹的路径上:&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;dpkg &lt;span class=&quot;nt&quot;&gt;-b&lt;/span&gt; mydeb program-mydeb_1.0.0_i386.deb 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;   deb 包正确的命名规则 program-name_version_architeture.deb,最好与它们在 control 文件
+里对应的语句相同。&lt;/p&gt;
+
+&lt;h5 id=&quot;安装&quot;&gt;安装&lt;/h5&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;dpkg &lt;span class=&quot;nt&quot;&gt;-i&lt;/span&gt; program-mydeb_1.0.0_i386.deb 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;  或者直接双击.deb 文件,会进入软件中心,点击安装即可。&lt;/p&gt;
+
+&lt;h5 id=&quot;卸载&quot;&gt;卸载&lt;/h5&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;dpkg &lt;span class=&quot;nt&quot;&gt;-P&lt;/span&gt; mydeb 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;  [TIPS]:1、安装好软件后启动器在/usr/share 下的的 applications 中,可以直接启动。&lt;/p&gt;
+
+&lt;p&gt;       2、本例也许并不是很符合.deb 打包标准,但是可以安装运行。&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h2 id=&quot;备注&quot;&gt;备注：&lt;/h2&gt;
+
+&lt;p&gt;      参考博客:&lt;/p&gt;
+
+&lt;p&gt;         &lt;a href=&quot;http://blog.csdn.net/yangbingzhou/article/details/33318625&quot;&gt;http://blog.csdn.net/yangbingzhou/article/details/33318625&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;         &lt;a href=&quot;http://blog.csdn.net/linda1000/article/details/12946297&quot;&gt;http://blog.csdn.net/linda1000/article/details/12946297&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Mon, 27 Aug 2018 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2018/08/27/python_deb.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/08/27/python_deb.html</guid>
+        
+        <category>python</category>
+        
+        <category>deb</category>
+        
+        <category>ubuntu</category>
         
         
       </item>
