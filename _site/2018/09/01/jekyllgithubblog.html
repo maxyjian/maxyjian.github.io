@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>在Github上使用jekyll框架建个人博客 - Max Blog</title>
+    <meta name="author"  content="杨建">
+    <meta name="description" content="在Github上使用jekyll框架建个人博客">
+    <meta name="keywords"  content="github, jekyll, git">
+    <!-- Open Graph -->
+    <meta property="og:title" content="在Github上使用jekyll框架建个人博客 - Max Blog">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://localhost:4000/2018/09/01/jekyllgithubblog.html">
+    <meta property="og:description" content="Believe verything is willing！">
+    <meta property="og:site_name" content="Max Blog">
+    <link rel="stylesheet" href="//cdn.staticfile.org/normalize/6.0.0/normalize.min.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_roc50gemkxpw4s4i.css">
+    <link rel="stylesheet" href="/assets/css/github-markdown.css">
+    <link rel="stylesheet" href="/assets/css/prism.css">
+    <link rel="stylesheet" href="/assets/css/share.min.css">
+    <link rel="stylesheet" href="/assets/css/app.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+	
+	<!--
+Author: Ray-Eldath
+refer to:
+ - http://docs.mathjax.org/en/latest/options/index.html
+-->
+
+	<script type="text/javascript" async src="https://cdn.bootcss.com/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+	
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+		jax: ["input/TeX", "output/HTML-CSS"],
+		tex2jax: {
+			inlineMath: [ ["$", "$"] ],
+			displayMath: [ ["$$", "$$"] ],
+			skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+		},
+		"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+      });
+    </script>
+
+	
+    <!--
+Author: Ray-Eldath
+-->
+<style>
+    .markdown-body .anchor{
+        float: left;
+        margin-top: -8px;
+        margin-left: -20px;
+        padding-right: 4px;
+        line-height: 1;
+        opacity: 0;
+    }
+    
+    .markdown-body .anchor .anchor-icon{
+        font-size: 15px
+    }
+</style>
+<script>
+    $(document).ready(function() {
+        let nodes = document.querySelector(".markdown-body").querySelectorAll("h1,h2,h3")
+        for(let node of nodes) {
+            var anchor = document.createElement("a")
+            var anchorIcon = document.createElement("i")
+            anchorIcon.setAttribute("class", "fa fa-anchor fa-lg anchor-icon")
+            anchorIcon.setAttribute("aria-hidden", true)
+            anchor.setAttribute("class", "anchor")
+            anchor.setAttribute("href", "#" + node.getAttribute("id"))
+            
+            anchor.onmouseover = function() {
+                this.style.opacity = "0.4"
+            }
+            
+            anchor.onmouseout = function() {
+                this.style.opacity = "0"
+            }
+            
+            anchor.appendChild(anchorIcon)
+            node.appendChild(anchor)
+        }
+    })
+</script>
+</head>
+
+
+<body>
+  <!--[if lt IE 10]>
+<div class="alert-danger" role="alert">你的浏览器实在太太太旧了，放学别走，升级完浏览器再说！<a target="_blank" class="alert-link" href="http://browsehappy.com">立即升级</a></div>
+<![endif]-->
+  <input id="nm-switch" type="hidden" value="true"> <header class="g-header">
+    <div class="g-logo">
+      <a href="/"></a>
+    </div>
+    <i id="menu-toggle" class="iconfont icon-menu"></i>
+    <nav class="g-nav">
+        <ul>
+            
+            <li><a href="/">home</a></li>
+            
+            <li><a href="/tags.html">tags</a></li>
+            
+        </ul>
+    </nav>
+</header>
+
+
+  <header class="g-banner post-header post-pattern- bgcolor- " data-theme="">
+    <div class="post-wrapper">
+      <div class="post-tags">
+        
+          
+            <a href="http://localhost:4000/tags#github" class="post-tag">github</a>
+          
+            <a href="http://localhost:4000/tags#jekyll" class="post-tag">jekyll</a>
+          
+            <a href="http://localhost:4000/tags#git" class="post-tag">git</a>
+          
+        
+      </div>
+      <h1>在Github上使用jekyll框架建个人博客</h1>
+      <div class="post-meta">
+        <span class="post-meta-item"><i class="iconfont icon-author"></i><a href="http://localhost:4000" target="_blank" rel="author">MAX</a></></span>
+        <time class="post-meta-item" datetime="18-09-01"><i class="iconfont icon-date"></i>01 Sep 2018</time>
+      </div>
+    </div>
+    
+    <div class="filter"></div>
+      <div class="post-cover" style="background: url('/assets/img/jekyllblog/theme.jpg') center no-repeat; background-size: cover;"></div>
+    
+  </header>
+
+  <div class="post-content visible">
+    
+
+    <article class="markdown-body">
+      <h2 id="新建本地和github仓库">新建本地和github仓库</h2>
+
+<h4 id="安装git">安装git</h4>
+
+<p>  检查是否已安装git</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yangjian@ubuntu:~<span class="nv">$ </span>git version
+    version 2.17.1
+</code></pre></div></div>
+<p>  若没有安装,使用如下命令安装</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get <span class="nb">install </span>git git-core
+</code></pre></div></div>
+
+<h4 id="用户配置">用户配置</h4>
+
+<p>  前提是已经注册github账号，具体注册过程就不用说了</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git config –global user.name “你的Github用户名”
+git config –global user.email “你的Github邮箱地址”
+</code></pre></div></div>
+<h4 id="配置ssh-key">配置SSH Key</h4>
+<p>  因为git是通过ssh的方式访问资源库，需要创建用于git访问github仓库用的公钥。</p>
+<h5 id="1生成公钥">1、生成公钥</h5>
+<p>  使用如下命令：</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh-keygen <span class="nt">-C</span> ‘你的Github邮箱地址’ <span class="nt">-t</span> rsa
+</code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yangjian@ubuntu:~<span class="nv">$ </span>ssh-keygen <span class="nt">-C</span> “maxyjian@gmail.com” <span class="nt">-t</span> rsa
+Generating public/private rsa key pair.
+Enter file <span class="k">in </span>which to save the key <span class="o">(</span>/home/yangjian/.ssh/id_rsa<span class="o">)</span>: 
+Enter passphrase <span class="o">(</span>empty <span class="k">for </span>no passphrase<span class="o">)</span>: 
+Enter same passphrase again: 
+Your identification has been saved <span class="k">in</span> /home/yangjian/.ssh/id_rsa.
+Your public key has been saved <span class="k">in</span> /home/yangjian/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:92I1aOtg9wm4ZYk1dhtyA8nN7IaimwVuXVg8gY5KlcI “maxyjian@gmail.com”
+The key<span class="s1">'s randomart image is:
++---[RSA 2048]----+
+|   .   . ..      |
+|    E o .o *     |
+|     o o  B +    |
+|    . . .o *     |
+|   . .. S @ X    |
+|    .. + X @ =   |
+|      + B X o    |
+|     . = O + .   |
+|      o . . o    |
++----[SHA256]-----+
+yangjian@ubuntu:~/.ssh$ gedit id_rsa.pub 
+</span></code></pre></div></div>
+
+<p>  可以指定密钥文件及密码，也可以不指定直接回车，然后打开刚创建的id_rsa.pub文件，复制其中所有内容。</p>
+<h5 id="2把生成的公钥填写到github中">2、把生成的公钥填写到Github中</h5>
+<p>  点击右上角你的头像settings–SSH and GPG keys ,进入如下界面：</p>
+
+<p><img src="http://localhost:4000/assets/img/jekyllblog/1.png" alt="图片1" height="50%" width="50%" /></p>
+
+<p>  点击New SSH key如下，随便输入title，在key粘贴SSH key,然后Add SSH key。</p>
+
+<p><img src="http://localhost:4000/assets/img/jekyllblog/2.png" alt="图片2" height="50%" width="50%" /></p>
+
+<h5 id="3进行ssh认证">3、进行SSH认证</h5>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yangjian@ubuntu:~/.ssh<span class="nv">$ </span>ssh <span class="nt">-T</span> git@github.com
+Hi maxyjian! You<span class="s1">'ve successfully authenticated, but GitHub does not provide shell access.
+</span></code></pre></div></div>
+<h5 id="4创建版本库并初始化">4、创建版本库并初始化</h5>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yangjian@ubuntu:~ <span class="nb">mkdir </span>testgit
+yangjian@ubuntu:~<span class="nv">$ </span><span class="nb">cd </span>testgit/
+yangjian@ubuntu:~/learngit<span class="nv">$ </span>git init
+</code></pre></div></div>
+<p>  初始化空的 Git 仓库位于 /home/yangjian/testgit/.git/</p>
+<h5 id="5创建远程仓库">5、创建远程仓库</h5>
+<p>  在github上托管自己的代码须先去github创建一个repository,如图，点击New repository。</p>
+
+<p><img src="http://localhost:4000/assets/img/jekyllblog/3.png" alt="图片3" height="50%" width="50%" /></p>
+
+<p>  输入repository name，点击creat repository。</p>
+
+<p><img src="http://localhost:4000/assets/img/jekyllblog/4.png" alt="图片4" height="50%" width="50%" /></p>
+
+<p>  进入到repository界面,记住git和http地址。</p>
+
+<p><img src="http://localhost:4000/assets/img/jekyllblog/5.png" alt="图片5" height="50%" width="50%" /></p>
+
+<p>  下面为本地git添加远程仓库：</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git remote add origin git@github.com:xxx.git #此处替换为自己的git地址
+</code></pre></div></div>
+<p>  若要删除这个repository，进入settings，翻到最下面，选择Delete this repository，如图:</p>
+
+<p><img src="http://localhost:4000/assets/img/jekyllblog/6.png" alt="图片6" height="50%" width="50%" /></p>
+
+<h5 id="6上传本地文件">6、上传本地文件</h5>
+<p>  现在我们上传一个readme.txt文件：</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gedit readme.txt
+git add readme.txt 
+git commit <span class="nt">-m</span> <span class="s2">"wrote a readme file"</span>
+git push origin master
+</code></pre></div></div>
+<p>  再次进入你刚刚创建的repository，就能看见你上传的readme.txt文件了。若要更换地址，需要先删除，再重新添加。删除命令:</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git remote <span class="nb">rm </span>origin
+</code></pre></div></div>
+
+<h2 id="使用jekyll搭建博客">使用jekyll搭建博客</h2>
+<h4 id="安装jekyll">安装jekyll</h4>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>build-essential
+<span class="nb">sudo </span>apt <span class="nb">install </span>ruby-full
+<span class="nb">sudo </span>apt <span class="nb">install </span>rubygems
+which gem     //查看gem的安装位置，正常显示“/usr/bin/gem”
+ 
+<span class="nb">sudo </span>gem  update   <span class="nt">--system</span>     //升级rubygems到最新版本
+<span class="nb">sudo </span>apt <span class="nb">install </span>curl
+curl <span class="nt">-sL</span> https://deb.nodesource.com/setup_6.x | sudo <span class="nt">-E</span> bash - 
+<span class="nb">sudo</span> apt-get install <span class="nt">-y</span> nodejs
+<span class="nb">sudo </span>gem <span class="nb">install </span>jekyll
+jekyll   <span class="nt">--version</span>           //查看jekyll的版本
+</code></pre></div></div>
+<h4 id="创建博客代码">创建博客代码</h4>
+<p>  输入如下命令:</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>jekyll new blog
+</code></pre></div></div>
+<p>  提示：</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Your user account isn<span class="s1">'t allowed to install to the system RubyGems.
+You can cancel this installation and run:
+      bundle install --path vendor/bundle
+  to install the gems into ./vendor/bundle/, or you can enter your password
+  and install the bundled gems to RubyGems using sudo.
+</span></code></pre></div></div>
+
+<p>  输入系统用户密码即可。博客内容在_post文件夹中，一定要以日期为开头来命名，文件使用markdown文件格式，默认采用kramdown解析器，具体语法不作介绍。使用命令jekyll server可进入本地服务，在本地浏览。</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd </span>blog
+jekyll server
+Configuration file: /home/yangjian/jekyll/blog/_config.yml
+            Source: /home/yangjian/jekyll/blog
+       Destination: /home/yangjian/jekyll/blog/_site
+ Incremental build: disabled. Enable with <span class="nt">--incremental</span>
+      Generating... 
+                    <span class="k">done in </span>0.843 seconds.
+ Auto-regeneration: enabled <span class="k">for</span> <span class="s1">'/home/yangjian/jekyll/blog'</span>
+    Server address: http://127.0.0.1:4000/
+  Server running... press ctrl-c to stop.
+</code></pre></div></div>
+
+<p>  使用浏览器进入<a href="http://localhost:4000/">http://localhost:4000/ </a> 可在本地查看博客，如下图。</p>
+
+<p><img src="http://localhost:4000/assets/img/jekyllblog/7.png" alt="图片7" height="40%" width="40%" /></p>
+
+<p>  如果不想自己去写，可以参考别人的博客源码或者下载一个主题<a href="http://jekyllthemes.org/">http://jekyllthemes.org/</a> ，修改其中的_config.yml进行配置，推荐一个主题：</p>
+
+<p>  <a href="http://jekyllthemes.org/themes/jekyll-theme-h2o/">http://jekyllthemes.org/themes/jekyll-theme-h2o/</a></p>
+
+<h4 id="托管博客到github">托管博客到github</h4>
+<p>  先把源码提交到本地仓库，再push到github上，命令如下：</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add <span class="k">*</span>
+git commit <span class="nt">-m</span> <span class="s2">"test theme"</span>
+git push origin master
+</code></pre></div></div>
+<p>  如里有报下面的错误：</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>To git@git.oschina.net:yangzhi/hello.git
+ <span class="o">!</span> <span class="o">[</span>rejected]        master -&gt; master <span class="o">(</span>fetch first<span class="o">)</span>
+error: failed to push some refs to <span class="s1">'git@git.oschina.net:yangzhi/hello.git'</span>
+hint: Updates were rejected because the remote contains work that you <span class="k">do
+</span>hint: not have locally. This is usually caused by another repository pushin
+hint: to the same ref. You may want to first merge the remote changes <span class="o">(</span>e.g.
+hint: <span class="s1">'git pull'</span><span class="o">)</span> before pushing again.
+hint: See the <span class="s1">'Note about fast-forwards'</span> <span class="k">in</span> <span class="s1">'git push --help'</span> <span class="k">for </span>details.
+</code></pre></div></div>
+<p>  输入下面这条指令：</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git push <span class="nt">-f</span> 
+</code></pre></div></div>
+<p>  上传到github之后就可以使用repository的http地址访问你的博客了。</p>
+
+<h3 id="参考博客">参考博客：</h3>
+
+<p>    https://blog.csdn.net/u012168038/article/details/77715439</p>
+
+<p>    https://blog.csdn.net/shursulei/article/details/73017668</p>
+
+<p>    https://www.cnblogs.com/litifeng/p/6337614.html</p>
+
+
+    </article>
+
+    
+    <div class="social-share-wrapper">
+      <div class="social-share"></div>
+    </div>
+    
+  </div>
+
+  <section class="author-detail">
+    <section class="post-footer-item author-card">
+      <div class="avatar">
+        <img src="http://localhost:4000/assets/img/profile.jpg" alt="">
+      </div>
+      <div class="author-name" rel="author">杨建</div>
+      <div class="bio">
+        <p>C、嵌入式开发者，浅尝python</p>
+      </div>
+      
+      <ul class="sns-links">
+        
+        <li>
+          <a href="//weibo.com/u/5354288080" target="_blank">
+                    <i class="iconfont icon-weibo"></i>
+                </a>
+        </li>
+        
+        <li>
+          <a href="//www.zhihu.com/people/finlay-yang/activities" target="_blank">
+                    <i class="iconfont icon-zhihu"></i>
+                </a>
+        </li>
+        
+        <li>
+          <a href="//maxyjian.github.io/" target="_blank">
+                    <i class="iconfont icon-github"></i>
+                </a>
+        </li>
+        
+      </ul>
+      
+    </section>
+    <section class="post-footer-item read-next">
+      
+
+      
+      <div class="read-next-item">
+        <a href="/2018/08/31/VPSserver.html" class="read-next-link"></a>
+          <section>
+            <span>利用搬瓦工和shadowsocks实现翻墙</span>
+            <p>购买搬瓦工服务器</p>
+          </section>
+          
+          <div class="filter"></div>
+          <img src="/assets/img/vpsServer/theme.jpg" alt="">
+          
+      </div>
+      
+    </section>
+    <section class="post-footer-item comment">
+      <div id="disqus_thread"></div>
+    </section>
+  </section>
+
+  <footer class="g-footer">
+  <section>Max Blog ©
+  
+  
+  2018
+  </section>
+  <section>Powered by <a href="//jekyllrb.com">Jekyll</a> | <a href="https://github.com/kaeyleo/jekyll-theme-H2O">Theme H2O</a></section>
+</footer>
+
+
+  <script src="/assets/js/social-share.min.js"></script>
+  <script>
+    socialShare('.social-share', {
+      sites: [
+        
+          'wechat'
+          ,
+          
+        
+          'weibo'
+          ,
+          
+        
+          'douban'
+          ,
+          
+        
+          'twitter'
+          
+        
+      ],
+      wechatQrcodeTitle: "分享到微信朋友圈",
+      wechatQrcodeHelper: '<p>扫码后点击右上角</p><p>将本文分享至朋友圈</p>'
+    });
+  </script>
+
+  
+  <script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+      var d = document,
+        s = d.createElement('script');
+      s.src = 'https://https-maxyjian-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  
+
+  <script src="/assets/js/prism.js"></script>
+  <script src="/assets/js/index.min.js"></script>
+</body>
+
+</html>

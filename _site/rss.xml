@@ -1,13 +1,209 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>MAX Blog</title>
+    <title>Max Blog</title>
     <description>Believe verything is willing！</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sat, 01 Sep 2018 21:25:56 +0800</pubDate>
-    <lastBuildDate>Sat, 01 Sep 2018 21:25:56 +0800</lastBuildDate>
+    <pubDate>Sun, 02 Sep 2018 14:36:13 +0800</pubDate>
+    <lastBuildDate>Sun, 02 Sep 2018 14:36:13 +0800</lastBuildDate>
     <generator>Jekyll v3.8.3</generator>
+    
+      <item>
+        <title>在Github上使用jekyll框架建个人博客</title>
+        <description>&lt;h2 id=&quot;新建本地和github仓库&quot;&gt;新建本地和github仓库&lt;/h2&gt;
+
+&lt;h4 id=&quot;安装git&quot;&gt;安装git&lt;/h4&gt;
+
+&lt;p&gt;  检查是否已安装git&lt;/p&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yangjian@ubuntu:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git version
+    version 2.17.1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;  若没有安装,使用如下命令安装&lt;/p&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;git git-core
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;用户配置&quot;&gt;用户配置&lt;/h4&gt;
+
+&lt;p&gt;  前提是已经注册github账号，具体注册过程就不用说了&lt;/p&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git config –global user.name “你的Github用户名”
+git config –global user.email “你的Github邮箱地址”
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h4 id=&quot;配置ssh-key&quot;&gt;配置SSH Key&lt;/h4&gt;
+&lt;p&gt;  因为git是通过ssh的方式访问资源库，需要创建用于git访问github仓库用的公钥。&lt;/p&gt;
+&lt;h5 id=&quot;1生成公钥&quot;&gt;1、生成公钥&lt;/h5&gt;
+&lt;p&gt;  使用如下命令：&lt;/p&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ssh-keygen &lt;span class=&quot;nt&quot;&gt;-C&lt;/span&gt; ‘你的Github邮箱地址’ &lt;span class=&quot;nt&quot;&gt;-t&lt;/span&gt; rsa
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yangjian@ubuntu:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;ssh-keygen &lt;span class=&quot;nt&quot;&gt;-C&lt;/span&gt; “maxyjian@gmail.com” &lt;span class=&quot;nt&quot;&gt;-t&lt;/span&gt; rsa
+Generating public/private rsa key pair.
+Enter file &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;which to save the key &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;/home/yangjian/.ssh/id_rsa&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;: 
+Enter passphrase &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;empty &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;no passphrase&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;: 
+Enter same passphrase again: 
+Your identification has been saved &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; /home/yangjian/.ssh/id_rsa.
+Your public key has been saved &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; /home/yangjian/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:92I1aOtg9wm4ZYk1dhtyA8nN7IaimwVuXVg8gY5KlcI “maxyjian@gmail.com”
+The key&lt;span class=&quot;s1&quot;&gt;'s randomart image is:
++---[RSA 2048]----+
+|   .   . ..      |
+|    E o .o *     |
+|     o o  B +    |
+|    . . .o *     |
+|   . .. S @ X    |
+|    .. + X @ =   |
+|      + B X o    |
+|     . = O + .   |
+|      o . . o    |
++----[SHA256]-----+
+yangjian@ubuntu:~/.ssh$ gedit id_rsa.pub 
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;  可以指定密钥文件及密码，也可以不指定直接回车，然后打开刚创建的id_rsa.pub文件，复制其中所有内容。&lt;/p&gt;
+&lt;h5 id=&quot;2把生成的公钥填写到github中&quot;&gt;2、把生成的公钥填写到Github中&lt;/h5&gt;
+&lt;p&gt;  点击右上角你的头像settings–SSH and GPG keys ,进入如下界面：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/img/jekyllblog/1.png&quot; alt=&quot;图片1&quot; height=&quot;50%&quot; width=&quot;50%&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;  点击New SSH key如下，随便输入title，在key粘贴SSH key,然后Add SSH key。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/img/jekyllblog/2.png&quot; alt=&quot;图片2&quot; height=&quot;50%&quot; width=&quot;50%&quot; /&gt;&lt;/p&gt;
+
+&lt;h5 id=&quot;3进行ssh认证&quot;&gt;3、进行SSH认证&lt;/h5&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yangjian@ubuntu:~/.ssh&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;ssh &lt;span class=&quot;nt&quot;&gt;-T&lt;/span&gt; git@github.com
+Hi maxyjian! You&lt;span class=&quot;s1&quot;&gt;'ve successfully authenticated, but GitHub does not provide shell access.
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h5 id=&quot;4创建版本库并初始化&quot;&gt;4、创建版本库并初始化&lt;/h5&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yangjian@ubuntu:~ &lt;span class=&quot;nb&quot;&gt;mkdir &lt;/span&gt;testgit
+yangjian@ubuntu:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;testgit/
+yangjian@ubuntu:~/learngit&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git init
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;  初始化空的 Git 仓库位于 /home/yangjian/testgit/.git/&lt;/p&gt;
+&lt;h5 id=&quot;5创建远程仓库&quot;&gt;5、创建远程仓库&lt;/h5&gt;
+&lt;p&gt;  在github上托管自己的代码须先去github创建一个repository,如图，点击New repository。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/img/jekyllblog/3.png&quot; alt=&quot;图片3&quot; height=&quot;50%&quot; width=&quot;50%&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;  输入repository name，点击creat repository。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/img/jekyllblog/4.png&quot; alt=&quot;图片4&quot; height=&quot;50%&quot; width=&quot;50%&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;  进入到repository界面,记住git和http地址。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/img/jekyllblog/5.png&quot; alt=&quot;图片5&quot; height=&quot;50%&quot; width=&quot;50%&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;  下面为本地git添加远程仓库：&lt;/p&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git remote add origin git@github.com:xxx.git #此处替换为自己的git地址
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;  若要删除这个repository，进入settings，翻到最下面，选择Delete this repository，如图:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/img/jekyllblog/6.png&quot; alt=&quot;图片6&quot; height=&quot;50%&quot; width=&quot;50%&quot; /&gt;&lt;/p&gt;
+
+&lt;h5 id=&quot;6上传本地文件&quot;&gt;6、上传本地文件&lt;/h5&gt;
+&lt;p&gt;  现在我们上传一个readme.txt文件：&lt;/p&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gedit readme.txt
+git add readme.txt 
+git commit &lt;span class=&quot;nt&quot;&gt;-m&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;wrote a readme file&quot;&lt;/span&gt;
+git push origin master
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;  再次进入你刚刚创建的repository，就能看见你上传的readme.txt文件了。若要更换地址，需要先删除，再重新添加。删除命令:&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git remote &lt;span class=&quot;nb&quot;&gt;rm &lt;/span&gt;origin
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;使用jekyll搭建博客&quot;&gt;使用jekyll搭建博客&lt;/h2&gt;
+&lt;h4 id=&quot;安装jekyll&quot;&gt;安装jekyll&lt;/h4&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;build-essential
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;ruby-full
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;rubygems
+which gem     //查看gem的安装位置，正常显示“/usr/bin/gem”
+ 
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;gem  update   &lt;span class=&quot;nt&quot;&gt;--system&lt;/span&gt;     //升级rubygems到最新版本
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;curl
+curl &lt;span class=&quot;nt&quot;&gt;-sL&lt;/span&gt; https://deb.nodesource.com/setup_6.x | sudo &lt;span class=&quot;nt&quot;&gt;-E&lt;/span&gt; bash - 
+&lt;span class=&quot;nb&quot;&gt;sudo&lt;/span&gt; apt-get install &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt; nodejs
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;gem &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;jekyll
+jekyll   &lt;span class=&quot;nt&quot;&gt;--version&lt;/span&gt;           //查看jekyll的版本
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h4 id=&quot;创建博客代码&quot;&gt;创建博客代码&lt;/h4&gt;
+&lt;p&gt;  输入如下命令:&lt;/p&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;jekyll new blog
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;  提示：&lt;/p&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Your user account isn&lt;span class=&quot;s1&quot;&gt;'t allowed to install to the system RubyGems.
+You can cancel this installation and run:
+      bundle install --path vendor/bundle
+  to install the gems into ./vendor/bundle/, or you can enter your password
+  and install the bundled gems to RubyGems using sudo.
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;  输入系统用户密码即可。博客内容在_post文件夹中，一定要以日期为开头来命名，文件使用markdown文件格式，默认采用kramdown解析器，具体语法不作介绍。使用命令jekyll server可进入本地服务，在本地浏览。&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;blog
+jekyll server
+Configuration file: /home/yangjian/jekyll/blog/_config.yml
+            Source: /home/yangjian/jekyll/blog
+       Destination: /home/yangjian/jekyll/blog/_site
+ Incremental build: disabled. Enable with &lt;span class=&quot;nt&quot;&gt;--incremental&lt;/span&gt;
+      Generating... 
+                    &lt;span class=&quot;k&quot;&gt;done in &lt;/span&gt;0.843 seconds.
+ Auto-regeneration: enabled &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'/home/yangjian/jekyll/blog'&lt;/span&gt;
+    Server address: http://127.0.0.1:4000/
+  Server running... press ctrl-c to stop.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;  使用浏览器进入&lt;a href=&quot;http://localhost:4000/&quot;&gt;http://localhost:4000/ &lt;/a&gt; 可在本地查看博客，如下图。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/img/jekyllblog/7.png&quot; alt=&quot;图片7&quot; height=&quot;40%&quot; width=&quot;40%&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;  如果不想自己去写，可以参考别人的博客源码或者下载一个主题&lt;a href=&quot;http://jekyllthemes.org/&quot;&gt;http://jekyllthemes.org/&lt;/a&gt; ，修改其中的_config.yml进行配置，推荐一个主题：&lt;/p&gt;
+
+&lt;p&gt;  &lt;a href=&quot;http://jekyllthemes.org/themes/jekyll-theme-h2o/&quot;&gt;http://jekyllthemes.org/themes/jekyll-theme-h2o/&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;托管博客到github&quot;&gt;托管博客到github&lt;/h4&gt;
+&lt;p&gt;  先把源码提交到本地仓库，再push到github上，命令如下：&lt;/p&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git add &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;
+git commit &lt;span class=&quot;nt&quot;&gt;-m&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;test theme&quot;&lt;/span&gt;
+git push origin master
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;  如里有报下面的错误：&lt;/p&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;To git@git.oschina.net:yangzhi/hello.git
+ &lt;span class=&quot;o&quot;&gt;!&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;rejected]        master -&amp;gt; master &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;fetch first&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+error: failed to push some refs to &lt;span class=&quot;s1&quot;&gt;'git@git.oschina.net:yangzhi/hello.git'&lt;/span&gt;
+hint: Updates were rejected because the remote contains work that you &lt;span class=&quot;k&quot;&gt;do
+&lt;/span&gt;hint: not have locally. This is usually caused by another repository pushin
+hint: to the same ref. You may want to first merge the remote changes &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;e.g.
+hint: &lt;span class=&quot;s1&quot;&gt;'git pull'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; before pushing again.
+hint: See the &lt;span class=&quot;s1&quot;&gt;'Note about fast-forwards'&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'git push --help'&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;details.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;  输入下面这条指令：&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git push &lt;span class=&quot;nt&quot;&gt;-f&lt;/span&gt; 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;  上传到github之后就可以使用repository的http地址访问你的博客了。&lt;/p&gt;
+
+&lt;h3 id=&quot;参考博客&quot;&gt;参考博客：&lt;/h3&gt;
+
+&lt;p&gt;    https://blog.csdn.net/u012168038/article/details/77715439&lt;/p&gt;
+
+&lt;p&gt;    https://blog.csdn.net/shursulei/article/details/73017668&lt;/p&gt;
+
+&lt;p&gt;    https://www.cnblogs.com/litifeng/p/6337614.html&lt;/p&gt;
+
+</description>
+        <pubDate>Sat, 01 Sep 2018 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2018/09/01/jekyllgithubblog.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/09/01/jekyllgithubblog.html</guid>
+        
+        <category>github</category>
+        
+        <category>jekyll</category>
+        
+        <category>git</category>
+        
+        
+      </item>
     
       <item>
         <title>利用搬瓦工和shadowsocks实现翻墙</title>

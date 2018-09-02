@@ -1,6 +1,12 @@
 [
   
     {
+      "title"    : "在Github上使用jekyll框架建个人博客",
+      "tags"     : "github jekyll git",
+      "url"      : "/2018/09/01/jekyllgithubblog.html"
+    } ,
+  
+    {
       "title"    : "利用搬瓦工和shadowsocks实现翻墙",
       "tags"     : "VPS shadowsocks",
       "url"      : "/2018/08/31/VPSserver.html"
