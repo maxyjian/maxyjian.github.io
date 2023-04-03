@@ -2,7 +2,7 @@
 layout: post
 title: '在Github上使用jekyll框架建个人博客'
 date: 2018-09-01
-author: MAX
+author: max
 cover: '/assets/img/jekyllblog/theme.jpg'
 tags: github jekyll git
 ---
@@ -14,7 +14,7 @@ tags: github jekyll git
 
 &ensp;&emsp;检查是否已安装git
 ```shell
-yangjian@ubuntu:~$ git version
+maxyjian@ubuntu:~$ git version
     version 2.17.1
 ```
 &ensp;&emsp;若没有安装,使用如下命令安装
@@ -38,13 +38,13 @@ ssh-keygen -C ‘你的Github邮箱地址’ -t rsa
 ```
 
 ```shell
-yangjian@ubuntu:~$ ssh-keygen -C “maxyjian@gmail.com” -t rsa
+maxyjian@ubuntu:~$ ssh-keygen -C “maxyjian@gmail.com” -t rsa
 Generating public/private rsa key pair.
-Enter file in which to save the key (/home/yangjian/.ssh/id_rsa): 
+Enter file in which to save the key (/home/maxyjian/.ssh/id_rsa): 
 Enter passphrase (empty for no passphrase): 
 Enter same passphrase again: 
-Your identification has been saved in /home/yangjian/.ssh/id_rsa.
-Your public key has been saved in /home/yangjian/.ssh/id_rsa.pub.
+Your identification has been saved in /home/maxyjian/.ssh/id_rsa.
+Your public key has been saved in /home/maxyjian/.ssh/id_rsa.pub.
 The key fingerprint is:
 SHA256:92I1aOtg9wm4ZYk1dhtyA8nN7IaimwVuXVg8gY5KlcI “maxyjian@gmail.com”
 The key's randomart image is:
@@ -59,7 +59,7 @@ The key's randomart image is:
 |     . = O + .   |
 |      o . . o    |
 +----[SHA256]-----+
-yangjian@ubuntu:~/.ssh$ gedit id_rsa.pub 
+maxyjian@ubuntu:~/.ssh$ gedit id_rsa.pub 
 ```
 
 &ensp;&emsp;可以指定密钥文件及密码，也可以不指定直接回车，然后打开刚创建的id_rsa.pub文件，复制其中所有内容。
@@ -74,16 +74,16 @@ yangjian@ubuntu:~/.ssh$ gedit id_rsa.pub
 
 ##### 3、进行SSH认证
 ```shell
-yangjian@ubuntu:~/.ssh$ ssh -T git@github.com
+maxyjian@ubuntu:~/.ssh$ ssh -T git@github.com
 Hi maxyjian! You've successfully authenticated, but GitHub does not provide shell access.
 ```
 ##### 4、创建版本库并初始化
 ```shell
-yangjian@ubuntu:~ mkdir testgit
-yangjian@ubuntu:~$ cd testgit/
-yangjian@ubuntu:~/learngit$ git init
+maxyjian@ubuntu:~ mkdir testgit
+maxyjian@ubuntu:~$ cd testgit/
+maxyjian@ubuntu:~/learngit$ git init
 ```
-&ensp;&emsp;初始化空的 Git 仓库位于 /home/yangjian/testgit/.git/
+&ensp;&emsp;初始化空的 Git 仓库位于 /home/maxyjian/testgit/.git/
 ##### 5、创建远程仓库
 &ensp;&emsp;在github上托管自己的代码须先去github创建一个repository,如图，点击New repository。
 
@@ -157,13 +157,13 @@ You can cancel this installation and run:
 ```shell
 cd blog
 jekyll server
-Configuration file: /home/yangjian/jekyll/blog/_config.yml
-            Source: /home/yangjian/jekyll/blog
-       Destination: /home/yangjian/jekyll/blog/_site
+Configuration file: /home/maxyjian/jekyll/blog/_config.yml
+            Source: /home/maxyjian/jekyll/blog
+       Destination: /home/maxyjian/jekyll/blog/_site
  Incremental build: disabled. Enable with --incremental
       Generating... 
                     done in 0.843 seconds.
- Auto-regeneration: enabled for '/home/yangjian/jekyll/blog'
+ Auto-regeneration: enabled for '/home/maxyjian/jekyll/blog'
     Server address: http://127.0.0.1:4000/
   Server running... press ctrl-c to stop.
 ```
