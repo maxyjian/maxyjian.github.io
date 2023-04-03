@@ -18,9 +18,9 @@ footer:
   since: 2018
 
 # Author 配置博主信息
-author: '杨建'
-nickname: 'MAX'
-bio: 'C、嵌入式开发者，浅尝python'
+author: 'maxyjian'
+nickname: 'max'
+bio: 'C、嵌入式开发者'
 avatar: '/assets/img/profile.jpg'
 
 # Search
@@ -50,7 +50,6 @@ theme-color: ''  # pink or default
 # url: email, weibo, zhihu, twitter, instagram, juejin, github, douban, facebook, dribble, uicn, jianshu, medium, linkedin
 sns:
   weibo: '//weibo.com/u/5354288080'
-  zhihu: '//www.zhihu.com/people/finlay-yang/activities'
   github: '//maxyjian.github.io/'
 
 # Tags 设置标签
