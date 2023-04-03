@@ -1,2 +1,2 @@
 # Personal blog
-address:https://maxyjian.github.io/  
+blog address:https://maxyjian.github.io/  
